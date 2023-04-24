@@ -17,6 +17,7 @@
     "jsonwebtoken": "^9.0.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.21",
+    "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.1",
     "razorpay": "^2.8.6"
   }
