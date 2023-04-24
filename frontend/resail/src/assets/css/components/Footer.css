@@ -1,0 +1,75 @@
+
+.footer {
+    display: grid;
+    height: 300px;
+    padding-top: 50px;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 200px;
+    background-color: rgba(22, 32, 57, 1);
+}
+
+.group_name_header {
+    color: rgb(255, 210, 99);
+    font-family: 'waranty';
+    font-size: 80px;
+    margin: 0;
+    text-align: center;
+}
+
+.group_name_text {
+    font-family: 'techead';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    color: white;
+}
+
+.group_name_company {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 60px;
+    color: white;
+    text-align: center;
+}
+
+.footer_address {
+    font-family: 'Glorify DEMO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 40px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-left: 25px;
+}
+
+.footercontactus_text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 50px;
+    width: 319px;
+    margin: auto;
+    color:  rgb(255, 210, 99);
+    text-align: center;
+}
+
+.contact_details_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+}
+
+.contact_details_name,.contact_details_action{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 40px;
+}

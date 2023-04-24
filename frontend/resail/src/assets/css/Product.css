@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans');
+
+@font-face {
+    font-family: 'waranty';
+    src: url('../../assets/fonts/waranty.otf');
+}
+
+@font-face {
+    font-family: 'techead';
+    src: url('../../assets/fonts/techead.otf');
+}
+
+.product_main_view {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 7% 0 7%;
+    /* justify-content: center; */
+}
+
+.product_page_details {
+    width: 100%;
+    height: 100%;
+    /* padding: 150px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product_page_price {
+    height: 29px;
+    margin-top: 50px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.product_page_hr {
+    width: 90%;
+    height: 0;
+    border: 3px solid #D9D9D9;
+    margin-left: 0;
+    margin-top: 15px;
+}
+
+.product_page_description {
+    min-height: 10%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    /* or 150% */
+
+    letter-spacing: -0.02em;
+}
+
+.product_page_cart {
+
+    border-radius: 20px;
+    width: fit-content;
+    outline: 0;
+    padding: 0px 31px;
+    /* width: 170px; */
+    height: 45px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 45px;
+    border: 0;
+
+}
+
+.cart_white{
+    background: transparent;
+    border: 1px solid black;
+}
+
+.cart_black{
+    background: #303030;
+    color: white;
+}
+
+.product_page_title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.product_page_images {
+    height: 50%;
+    width: 100%;
+    background-size: 'cover';
+    background-repeat: 'no-repeat';
+    background-position: 'center';
+}
+
+.product_page_image{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}

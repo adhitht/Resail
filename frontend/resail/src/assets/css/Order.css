@@ -1,0 +1,76 @@
+.ordermain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+    margin-top: 100px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.order_page_order_id {
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    color: rgb(94, 94, 94);
+    margin: 10px 25px 50px 0;
+    text-align: right;
+}
+
+.order_total{
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    padding-left: 50%;
+    line-height: 34px;
+    margin: 10px 25px 10px 0;
+}
+
+.order_page_QR{
+    /* border: 30px solid rgba(255, 210, 99, 1); */
+    border: 30px solid rgba(242, 173, 1, 0.6);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.order_reference_container{
+    display: flex;
+    /* justify-content: flex-start; */
+    /* padding-left: 60%; */
+    width: 316px;
+}
+
+.order_reference_id{
+    width: 1000%;
+    height: 36px;
+    border-radius: 20px;
+    border: 2px solid grey;
+    font-size: 150%;
+    color: black;
+    padding-left: 25px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 500;
+    margin: 50px 0 20px 0;
+}
+
+.order_reference_id:focus{
+    outline: 0;
+}
+
+.order_rounded_button{
+    border-radius: 50px;
+    width: 180px;
+    height: 50px;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'PT Sans', sans-serif;
+    margin-bottom: 50px;
+    border: 1px solid rgba(242, 173, 1, 0.7);
+    background-color: rgba(242, 173, 1, 0.6);
+}

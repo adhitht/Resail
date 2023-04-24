@@ -1,0 +1,124 @@
+.productsnavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -2px 4px 15px rgba(0, 0, 0, 0.18);
+}
+
+.productsnavbaroptions {
+    display: flex;
+    position: relative;
+}
+
+.productsnavbaroptions p {
+    margin-right: 25px;
+}
+
+.productsnavbarheader {
+    font-size: 50px;
+    margin-left: 30px;
+    padding: 15px;
+    font-family: 'waranty';
+    cursor: pointer;
+}
+
+.productsnavbarinput {
+    width: 287px;
+    height: 42px;
+    margin-right: 25px;
+    outline: none;
+    border: 2px solid #868383;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 600;
+    padding-left: 20px;
+    font-size: 24px;
+    line-height: 80px;
+    border-radius: 30px;
+}
+
+.productscart {
+    display: flex;
+    align-items: center;
+    color: '#868383';
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.productcount {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    background-color: red;
+    border-radius: 30px;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    color: white;
+    margin-top: -20px;
+    margin-left: -10px;
+}
+
+.productcount p {
+    margin: 3px 0 0 0;
+    font-size: 90%;
+}
+
+.productsnavbarsearchresult {
+    position: absolute;
+    max-height: 300px;
+    top: 50px;
+    left: 15px;
+    background-color: white;
+    overflow-y: scroll;
+    width: 287px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+}
+
+.productsnavbarsearchresult::-webkit-scrollbar {
+    width: 3px;
+}
+
+.productsnavbarsearchresult::-webkit-scrollbar-thumb {
+    background-color: #868383;
+}
+
+.avatar {
+    position: relative;
+}
+
+.avataroptions {
+    position: absolute;
+    max-height: 300px;
+    top: 50px;
+    right: 1px;
+    background-color: white;
+    width: 150px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    border-radius: 10px;
+    background: rgba(234, 184, 60, 0.95);
+}
+
+.avataroption {
+    display: flex;
+    padding: 10px 0 0 7px;
+    height: 36px;
+    color: white;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+
+}
+
+.searchresult {
+    border-radius: 5px;
+    height: 50px;
+    display: flex;
+    padding-left: 15px;
+    align-items: center;
+}

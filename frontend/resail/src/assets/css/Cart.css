@@ -1,0 +1,35 @@
+.cart_page_main {
+    margin-top: 200px;
+}
+
+.cart_details_final {
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 30px 15%;
+}
+
+.cart_details_final div {
+    display: flex;
+    align-items: center;
+}
+
+.cart_details_final p {
+    margin-left: 80px;
+}
+
+.cart_details_actions {
+    margin: 30px 25%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.vertical_bar{
+    width: 0;
+    border: 1px solid black;
+}

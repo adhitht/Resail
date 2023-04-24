@@ -1,0 +1,22 @@
+.generic_container{
+    width: 100%;
+    margin: 36px;
+}
+.generic_input {
+    /* width: 448px; */
+    width: 80%;
+    height: 30px;
+    font-size: 20px;
+    padding-left: 10px;
+    border: 2px solid #C8C8CE;
+    border-radius: 10px;
+}
+
+.generic_title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    margin: 10px 0 0px 0; 
+    /* line-height: 43px; */
+}
