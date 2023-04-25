@@ -9,7 +9,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('express-session');
 const mysql = require('mysql');
 const cors = require('cors')
-const cookieSession = require("cookie-session");
+// const cookieSession = require("cookie-session");
 // const Razorpay = require("razorpay");
 
 const app = express();
