@@ -4,7 +4,7 @@ const backendLink = process.env.backendlink || `http://${backend}:3000`
 const frontendLink = process.env.frontendlink || `http://${backend}:3001`
 
 const express = require('express');
-const passport = require('passport');
+var passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('express-session');
 const mysql = require('mysql');
