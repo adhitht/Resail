@@ -139,9 +139,7 @@ app.use('/test', (req,res) => {
 //     host: 'aws.connect.psdb.cloud',
 //     password: 'pscale_pw_bs9vrMOPBRdRpw4y321xqOrwfohZsj1SBZOHhKj5F7A'    
 // });
-const connection = mysql.createConnection(
-    'mysql://7rh12wff4puae2kdjb1d:pscale_pw_x42mR1vx1s7FgNzsQqgfJtOpNfPMKKaMU09d0lUNXqu@aws.connect.psdb.cloud/resail?ssl={}'
-    )
+const connection = mysql.createConnection(process.env.DATABASE_URL)
 // connection.connect()
 
 
