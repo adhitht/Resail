@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Backend For running OCS CV Application",
   "main": "app.js",
+  "engines": {
+    "node": "19.x"
+  },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Test\"",
     "dev": "nodemon app.js",
     "dev2": "nodemon app2.js"
