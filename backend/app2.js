@@ -2,12 +2,13 @@
 const backend = process.env.backend || 'localhost'
 const backendLink = process.env.backendlink || `http://${backend}:3000`
 const frontendLink = process.env.frontendlink || `http://${backend}:3001`
+require('dotenv').config()
 
 const express = require('express');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('express-session');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const cors = require('cors')
 const cookieSession = require("cookie-session");
 // const Razorpay = require("razorpay");
@@ -116,27 +117,35 @@ passport.deserializeUser(function (user, done) {
 
 
 
-const onlineconnection = mysql.createConnection({
-    host: 'sql9.freemysqlhosting.net',
-    user: 'sql9605257',
-    password: 'c3BZZmSiUR',
-    database: 'sql9605257'
-});
+// const localconnection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'root',
+//     database: 'resail'
+// });
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'resail'
-});
+// const connection = mysql.createConnection({
+//     database: 'resail',
+//     username: 'vys6rf089lbvfmfxf87y',
+//     host: 'aws.connect.psdb.cloud',
+//     password: 'pscale_pw_bs9vrMOPBRdRpw4y321xqOrwfohZsj1SBZOHhKj5F7A'    
+// });
 
-connection.connect((err) => {
-    if (err) {
-        console.error('Error connecting to MySQL: ' + err.stack);
-        return;
-    }
-    console.log('Connected to MySQL as id ' + connection.threadId);
-});
+// connection.connect((err) => {
+//     if (err) {
+//         console.error('Error connecting to MySQL: ' + err.stack);
+//         return;
+//     }
+//     console.log('Connected to MySQL as id ' + connection.threadId);
+// });
+
+// const connection = await mysql.createConnection('')
+const connection = mysql.createConnection(process.env.DATABASE_URL)
+
+// database: resail
+// username: b51abs7efqzjjh6dx8tw
+// host: aws.connect.psdb.cloud
+// password: pscale_pw_lvnd23bcygcDf2HAt9mF7WfNqCUERfIkjZVtM4GKeQB
 
 //Check if Credentials are correct
 const verifyUser = (req, res, next) => {
