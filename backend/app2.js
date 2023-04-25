@@ -140,7 +140,7 @@ passport.deserializeUser(function (user, done) {
 // });
 
 // const connection = await mysql.createConnection('')
-const connection = mysql.createConnection('mysql://z8cdekng3w57mrnae7ke:pscale_pw_e5KbhS2dJKApAosmU6P03RUGg6xpGGe3xklkcgHk3RC@aws.connect.psdb.cloud/resail?ssl={"rejectUnauthorized":true}')
+const connection = mysql.createConnection('mysql://z8cdekng3w57mrnae7ke:pscale_pw_lvnd23bcygcDf2HAt9mF7WfNqCUERfIkjZVtM4GKeQB@aws.connect.psdb.cloud/resail?ssl={"rejectUnauthorized":true}')
 
 // const connection = mysql.createConnection({
 //     user: 'b51abs7efqzjjh6dx8tw',
