@@ -140,7 +140,7 @@ app.use('/test', (req,res) => {
 //     password: 'pscale_pw_bs9vrMOPBRdRpw4y321xqOrwfohZsj1SBZOHhKj5F7A'    
 // });
 const connection = mysql.createConnection(
-    'mysql://7rh12wff4puae2kdjb1d:pscale_pw_x42mR1vx1s7FgNzsQqgfJtOpNfPMKKaMU09d0lUNXqu@aws.connect.psdb.cloud/resail?ssl={"rejectUnauthorized":true}'
+    'mysql://7rh12wff4puae2kdjb1d:pscale_pw_x42mR1vx1s7FgNzsQqgfJtOpNfPMKKaMU09d0lUNXqu@aws.connect.psdb.cloud/resail?ssl={}'
     )
 // connection.connect()
 
