@@ -114,7 +114,10 @@ passport.deserializeUser(function (user, done) {
     done(null, user);
 });
 
-
+// Test End Points
+app.use('/test', (req,res) => {
+    res.json({test: "Success", message: "If you are seeing this its a success"});
+})
 
 const onlineconnection = mysql.createConnection({
     host: 'sql9.freemysqlhosting.net',
