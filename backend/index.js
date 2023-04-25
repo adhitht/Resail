@@ -119,26 +119,28 @@ app.use('/test', (req,res) => {
     res.json({test: "Success", message: "If you are seeing this its a success"});
 })
 
-const onlineconnection = mysql.createConnection({
-    host: 'sql9.freemysqlhosting.net',
-    user: 'sql9605257',
-    password: 'c3BZZmSiUR',
-    database: 'sql9605257'
-});
+// const onlineconnection = mysql.createConnection({
+//     host: 'sql9.freemysqlhosting.net',
+//     user: 'sql9605257',
+//     password: 'c3BZZmSiUR',
+//     database: 'sql9605257'
+// });
 
-const localconnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'resail'
-});
+// const localconnection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'root',
+//     database: 'resail'
+// });
 
-const connection = mysql.createConnection({
-    database: 'resail',
-    username: 'vys6rf089lbvfmfxf87y',
-    host: 'aws.connect.psdb.cloud',
-    password: 'pscale_pw_bs9vrMOPBRdRpw4y321xqOrwfohZsj1SBZOHhKj5F7A'    
-});
+// const connection = mysql.createConnection({
+//     database: 'resail',
+//     username: 'vys6rf089lbvfmfxf87y',
+//     host: 'aws.connect.psdb.cloud',
+//     password: 'pscale_pw_bs9vrMOPBRdRpw4y321xqOrwfohZsj1SBZOHhKj5F7A'    
+// });
+const connection = mysql.createConnection('mysql://z8cdekng3w57mrnae7ke:pscale_pw_e5KbhS2dJKApAosmU6P03RUGg6xpGGe3xklkcgHk3RC@aws.connect.psdb.cloud/resail?ssl={"rejectUnauthorized":true}')
+// connection.connect()
 
 
 connection.connect((err) => {

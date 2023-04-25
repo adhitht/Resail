@@ -2,7 +2,7 @@
 const backend = process.env.backend || 'localhost'
 const backendLink = process.env.backendlink || `http://${backend}:3000`
 const frontendLink = process.env.frontendlink || `http://${backend}:3001`
-require('dotenv').config()
+// require('dotenv').config()
 
 const express = require('express');
 const passport = require('passport');
@@ -140,8 +140,22 @@ passport.deserializeUser(function (user, done) {
 // });
 
 // const connection = await mysql.createConnection('')
-const connection = mysql.createConnection(process.env.DATABASE_URL)
+const connection = mysql.createConnection('mysql://z8cdekng3w57mrnae7ke:pscale_pw_e5KbhS2dJKApAosmU6P03RUGg6xpGGe3xklkcgHk3RC@aws.connect.psdb.cloud/resail?ssl={"rejectUnauthorized":true}')
 
+// const connection = mysql.createConnection({
+//     user: 'b51abs7efqzjjh6dx8tw',
+//     password: 'pscale_pw_lvnd23bcygcDf2HAt9mF7WfNqCUERfIkjZVtM4GKeQB',
+//     database: 'resail',
+//     host: 'aws.connect.psdb.cloud',
+//     ssl: {"rejectUnauthorized":true}
+// });
+
+connection.connect(function (err) {
+    if (err) {
+        console.error('error connecting: ', err);
+        return;
+    }
+});
 // database: resail
 // username: b51abs7efqzjjh6dx8tw
 // host: aws.connect.psdb.cloud
@@ -303,44 +317,44 @@ app.post('/checkout', verifyUser, (req, res) => {
         const maininsertquery = `INSERT INTO orderlist select ${orderid} as order_id, '${res.locals.email}' as email, NULL as transaction_id, sum(products.price) from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
         connection.query(maininsertquery)
 
-        res.send({url: `${frontendLink}/order?order_id=${orderid}`})
+        res.send({ url: `${frontendLink}/order?order_id=${orderid}` })
     }
 })
 
-app.post('/placeorder', verifyUser,(req,res) => {
+app.post('/placeorder', verifyUser, (req, res) => {
     const transaction_id = req.body.transaction_id ?? req.query.transaction_id;
     const query = `UPDATE orderlist SET transaction_id=${transaction_id} WHERE email='${res.locals.email}'`
-    connection.query(query, (error,results) =>{
-        if(error) throw error;
+    connection.query(query, (error, results) => {
+        if (error) throw error;
         res.send(results[0])
     })
 })
 
-app.get('/getorderdetails', verifyUser,(req,res) => {
+app.get('/getorderdetails', verifyUser, (req, res) => {
     const order_id = req.body.order_id ?? req.query.order_id;
     const query = `SELECT amount FROM orderlist WHERE order_id=${order_id} AND email='${res.locals.email}'`
-    connection.query(query, (error,results) =>{
-        if(error) throw error;
+    connection.query(query, (error, results) => {
+        if (error) throw error;
         res.send(results[0])
     })
 })
 
-app.get('/getprofile', verifyUser,(req,res) => {
+app.get('/getprofile', verifyUser, (req, res) => {
     const query = `select email,name,hostel, hostel_room as room, mobile as phone from users where email='${res.locals.email}'`
-    connection.query(query, (error,results) =>{
-        if(error) throw error;
+    connection.query(query, (error, results) => {
+        if (error) throw error;
         res.send(results[0])
     })
 
 })
 
-app.post('/editprofile', verifyUser,(req,res) => {
+app.post('/editprofile', verifyUser, (req, res) => {
     const hostel = req.body.hostel ?? req.query.hostel;
     const room = req.body.room ?? req.query.room;
     const phone = req.body.phone ?? req.query.phone;
     const query = `UPDATE users SET hostel = '${hostel}', hostel_room = '${room}', Mobile='${phone}' WHERE email = '${res.locals.email}'`
-    connection.query(query, (error,results) =>{
-        if(error) throw error;
+    connection.query(query, (error, results) => {
+        if (error) throw error;
         res.send(results)
     })
 
