@@ -126,12 +126,20 @@ const onlineconnection = mysql.createConnection({
     database: 'sql9605257'
 });
 
-const connection = mysql.createConnection({
+const localconnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
     database: 'resail'
 });
+
+const connection = mysql.createConnection({
+    database: 'resail',
+    username: 'vys6rf089lbvfmfxf87y',
+    host: 'aws.connect.psdb.cloud',
+    password: 'pscale_pw_bs9vrMOPBRdRpw4y321xqOrwfohZsj1SBZOHhKj5F7A'    
+});
+
 
 connection.connect((err) => {
     if (err) {

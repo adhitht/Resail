@@ -3,6 +3,7 @@
 CREATE TABLE users (
 	email VARCHAR(500),
 	name VARCHAR(500),
+	picture VARCHAR(500),
 	hostel VARCHAR(500),
 	hostel_room VARCHAR(10),
 	Mobile VARCHAR(15)
