@@ -1,8 +1,8 @@
 {
-  "name": "ocs-backend",
+  "name": "resail-backend",
   "version": "1.0.0",
-  "description": "Backend For running OCS CV Application",
-  "main": "app.js",
+  "description": "Backend Resail",
+  "main": "index.js",
   "engines": {
     "node": "18.x"
   },
@@ -22,7 +22,6 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.21",
     "passport-google-oauth20": "^2.0.0",
-    "passport-jwt": "^4.0.1",
-    "razorpay": "^2.8.6"
+    "passport-jwt": "^4.0.1"
   }
 }
