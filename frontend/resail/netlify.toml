@@ -1,6 +1,6 @@
 [build]
   command = "CI='' npm run build"
-  publish  = "frontend/resail/build"
+  publish  = "/build"
   base = "frontend/resail"
 
 [[redirects]]
