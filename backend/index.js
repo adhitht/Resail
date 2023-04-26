@@ -246,7 +246,7 @@ app.get('/getcart', verifyUser, (req, res) => {
     const query = `select cart.card_id, products.product_id, products.name, products.images, products.exp_price, products.description from cart inner join products on cart.product_id=products.product_id where cart.email=?`
     connection.query(query, [res.locals.email], (error, results1) => {
         if (error) throw error;
-        const query = `select sum(products.price) as total from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
+        const query = `select sum(products.exp_price) as total from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
         connection.query(query, (error, results2) => {
             if (error) throw error;
             res.json({ total: results2[0].total, data: results1 })
@@ -304,7 +304,7 @@ app.post('/checkout', verifyUser, (req, res) => {
         const insertquery = `INSERT INTO orders SELECT ${orderid} as order_id, product_id,email FROM cart WHERE email='${res.locals.email}'`
         connection.query(insertquery)
 
-        const maininsertquery = `INSERT INTO orderlist select ${orderid} as order_id, '${res.locals.email}' as email, NULL as transaction_id, sum(products.price) from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
+        const maininsertquery = `INSERT INTO orderlist select ${orderid} as order_id, '${res.locals.email}' as email, NULL as transaction_id, sum(products.exp_price) from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
         connection.query(maininsertquery)
 
         res.send({url: `${frontendLink}/order?order_id=${orderid}`})
