@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { ShoppingCart, UserAvatar, Power } from '@carbon/icons-react'
 import { Avatar } from '@mui/material';
-import './components/NavBar.css'
-import { backendLink,  backendLinks } from "../../config";
+import '../assets/css/components/NavBar.css'
+import { backendLink,  backendLinks } from "../config";
 
 function NavBar(changestate) {
     const [searchResult1, setsearchResult1] = useState([])
@@ -64,10 +64,10 @@ function NavBar(changestate) {
                 <input type='text' className='productsnavbarinput' placeholder='Search items' onChange={(e) => { searchproducts1(e.target.value) }} />
                 <div className='productsnavbarsearchresult' style={{}}>
                     {searchResult1 && searchResult1.map(result =>
-                        <div key={result.product_id} className='searchresult' onClick={() => { window.location.replace(`http://localhost:3001/product?product=${result.product_id}`) }}>{result.name}</div>
+                        <div key={result.product_id} className='searchresult' onClick={() => { window.location.assign(`/product?product=${result.product_id}`) }}>{result.name}</div>
                     )}
                 </div>
-                <div className='productscart' onClick={() => { window.location.replace(`http://localhost:3001/cart`) }}>
+                <div className='productscart' onClick={() => { window.location.replace(`/cart`) }}>
                     <ShoppingCart size='2rem' color='#868383' />
                     {cartcount ? (<div className="productcount"><p>{cartcount}</p></div>) : ''}
                 </div>

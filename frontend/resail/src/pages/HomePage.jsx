@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../assets/css/HomePage.css'
 import ProductView from '../components/ProductView'
 import Axios from 'axios';
-import NavBar from '../assets/css/NavBar';
+import NavBar from '../components/NavBar';
 import { backendLink } from '../config';
 import Footer from '../components/Footer';
 

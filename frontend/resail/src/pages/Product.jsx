@@ -2,7 +2,7 @@ import Axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useSearchParams } from "react-router-dom";
 import '../assets/css/Product.css'
-import NavBar from "../assets/css/NavBar";
+import NavBar from "../components/NavBar";
 import { backendLinks, backendLink } from '../config';
 import Footer from '../components/Footer';
 

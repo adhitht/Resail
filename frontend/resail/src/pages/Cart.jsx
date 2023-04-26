@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CartProductView from '../components/CartProductView';
 import '../assets/css/Cart.css'
 import Axios from 'axios';
-import NavBar from '../assets/css/NavBar';
+import NavBar from '../components/NavBar';
 import { backendLink } from '../config';
 
 function Cart() {
