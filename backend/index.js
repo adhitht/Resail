@@ -187,14 +187,17 @@ app.get('/products', (req, res) => {
     const count = req.body.count ?? req.query.count;
     const countquery = `limit ${count}` ?? ''
     if (req.body.order_by == 'latest' || req.query.order_by == 'latest') {
-        const query = `SELECT product_id,name,description,exp_price,images,posted_on FROM products ORDER BY posted_on ${countquery} `;
+        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ORDER BY posted_on desc ${countquery} `;
+        console.log(query)
         connection.query(query, (error, results) => {
             if (error) throw error;
+            console.log(results)
             res.send(results);
         })
     }
     else {
-        const query = `SELECT product_id,name,description,exp_price,images,posted_on FROM products ${countquery}`;
+        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ${countquery}`;
+        console.log(query)
         connection.query(query, (error, results) => {
             if (error) throw error;
             res.send(results);
@@ -205,7 +208,7 @@ app.get('/products', (req, res) => {
 app.get('/getproduct', (req, res) => {
     const product_id = req.body.product_id ?? req.query.product_id;
     // const product_id = req.query.product_id
-    const query = `SELECT product_id,name,description,exp_price,images,posted_on FROM products WHERE product_id=${product_id}`;
+    const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products WHERE product_id=${product_id}`;
     connection.query(query, (error, results) => {
         if (error) throw error;
         res.send(results);
@@ -216,7 +219,7 @@ app.get('/getproduct', (req, res) => {
 
 app.get('/searchproducts', (req, res) => {
     const search = req.body.search ?? req.query.search;
-    const query = `SELECT product_id,name,description,exp_price,images,posted_on FROM products WHERE name like '%${search}%' limit 10`;
+    const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products WHERE name like '%${search}%' limit 10`;
     connection.query(query, (error, results) => {
         if (error) throw error;
         // if(results.length > 0){
@@ -243,7 +246,7 @@ app.post('/postproduct', verifyUser, (req, res) => {
 //Cart API Calls
 app.get('/getcart', verifyUser, (req, res) => {
     // const query = 'SELECT * FROM cart WHERE email=?';
-    const query = `select cart.card_id, products.product_id, products.name, products.images, products.exp_price, products.description from cart inner join products on cart.product_id=products.product_id where cart.email=?`
+    const query = `select cart.card_id, products.product_id, products.name, products.images, products.exp_price as price, products.description from cart inner join products on cart.product_id=products.product_id where cart.email=?`
     connection.query(query, [res.locals.email], (error, results1) => {
         if (error) throw error;
         const query = `select sum(products.exp_price) as total from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
