@@ -59,7 +59,7 @@ function NavBar(changestate) {
     
     return (
         <div className='productsnavbar'>
-            <div className='productsnavbarheader' onClick={() => { window.location.assign('/') }}>Resail</div>
+            <div className='productsnavbarheader' onClick={() => { window.location.assign('/') }}>Resail<p>BETA</p></div>
             <div className='productsnavbaroptions'>
                 <input type='text' className='productsnavbarinput' placeholder='Search items' onChange={(e) => { searchproducts1(e.target.value) }} />
                 <div className='productsnavbarsearchresult' style={{}}>

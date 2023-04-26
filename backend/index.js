@@ -115,8 +115,8 @@ passport.deserializeUser(function (user, done) {
 });
 
 // Test End Points
-app.use('/test', (req,res) => {
-    res.json({test: "Success", message: "If you are seeing this its a success"});
+app.use('/test', (req, res) => {
+    res.json({ test: "Success", message: "If you are seeing this its a success" });
 })
 
 // const onlineconnection = mysql.createConnection({
@@ -184,20 +184,44 @@ app.get('/users', (req, res) => {
 
 //Product API Calls
 app.get('/products', (req, res) => {
-    const count = req.body.count ?? req.query.count;
-    const countquery = `limit ${count}` ?? ''
+    const countquery = ''
+    try {
+        const count = req.body.count ?? req.query.count;
+        const countquery = `limit ${count}` ?? ''
+    }
+    catch (error) {
+        console.log(error)
+    }
     if (req.body.order_by == 'latest' || req.query.order_by == 'latest') {
         const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ORDER BY posted_on desc ${countquery} `;
-        console.log(query)
+
         connection.query(query, (error, results) => {
             if (error) throw error;
-            console.log(results)
+
+            res.send(results);
+        })
+    }
+    else if (req.body.order_by == 'price_asc' || req.query.order_by == 'price_asc') {
+        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ORDER BY price ${countquery} `;
+
+        connection.query(query, (error, results) => {
+            if (error) throw error;
+
+            res.send(results);
+        })
+    }
+    else if (req.body.order_by == 'price_desc' || req.query.order_by == 'price_desc') {
+        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ORDER BY price desc ${countquery} `;
+
+        connection.query(query, (error, results) => {
+            if (error) throw error;
+
             res.send(results);
         })
     }
     else {
         const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ${countquery}`;
-        console.log(query)
+
         connection.query(query, (error, results) => {
             if (error) throw error;
             res.send(results);
@@ -215,6 +239,49 @@ app.get('/getproduct', (req, res) => {
     })
 
 
+})
+
+app.get('/productsearch', (req, res) => {
+
+    const search = req.body.search ?? req.query.search ?? '';
+    console.log(search)
+    const searchquery = `WHERE name like '%${search}%'` ?? ''
+
+    if (req.body.order_by == 'latest' || req.query.order_by == 'latest') {
+        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ${searchquery} ORDER BY posted_on desc `;
+
+        connection.query(query, (error, results) => {
+            if (error) throw error;
+
+            res.send(results);
+        })
+    }
+    else if (req.body.order_by == 'price_asc' || req.query.order_by == 'price_asc') {
+        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ${searchquery} ORDER BY price `;
+
+        connection.query(query, (error, results) => {
+            if (error) throw error;
+
+            res.send(results);
+        })
+    }
+    else if (req.body.order_by == 'price_desc' || req.query.order_by == 'price_desc') {
+        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ${searchquery} ORDER BY price desc `;
+
+        connection.query(query, (error, results) => {
+            if (error) throw error;
+
+            res.send(results);
+        })
+    }
+    else {
+        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ${searchquery}`;
+
+        connection.query(query, (error, results) => {
+            if (error) throw error;
+            res.send(results);
+        })
+    }
 })
 
 app.get('/searchproducts', (req, res) => {
@@ -235,9 +302,9 @@ app.post('/postproduct', verifyUser, (req, res) => {
         const product_id = results[0]['product_id'] + 1;
         const query = 'INSERT INTO products VALUES(?,?,?,?,?,?,?,0)';
         const now = new Date();
-        connection.query(query, [product_id, req.body.name, req.body.description, req.body.ask_price, req.body.exp_price, req.body.pictures,now.toISOString().slice(0, -5), res.locals.email], (error, results) => {
+        connection.query(query, [product_id, req.body.name, req.body.description, req.body.ask_price, req.body.exp_price, req.body.pictures, now.toISOString().slice(0, -5), res.locals.email], (error, results) => {
             if (error) throw error;
-            res.json({success: true, product_id: product_id});
+            res.json({ success: true, product_id: product_id });
         });
     });
 });
@@ -310,44 +377,44 @@ app.post('/checkout', verifyUser, (req, res) => {
         const maininsertquery = `INSERT INTO orderlist select ${orderid} as order_id, '${res.locals.email}' as email, NULL as transaction_id, sum(products.exp_price) from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
         connection.query(maininsertquery)
 
-        res.send({url: `${frontendLink}/order?order_id=${orderid}`})
+        res.send({ url: `${frontendLink}/order?order_id=${orderid}` })
     }
 })
 
-app.post('/placeorder', verifyUser,(req,res) => {
+app.post('/placeorder', verifyUser, (req, res) => {
     const transaction_id = req.body.transaction_id ?? req.query.transaction_id;
     const query = `UPDATE orderlist SET transaction_id=${transaction_id} WHERE email='${res.locals.email}'`
-    connection.query(query, (error,results) =>{
-        if(error) throw error;
-        res.json({url: `${backendLink}/orders`})
+    connection.query(query, (error, results) => {
+        if (error) throw error;
+        res.json({ url: `${backendLink}/orders` })
     })
 })
 
-app.get('/getorderdetails', verifyUser,(req,res) => {
+app.get('/getorderdetails', verifyUser, (req, res) => {
     const order_id = req.body.order_id ?? req.query.order_id;
     const query = `SELECT amount FROM orderlist WHERE order_id=${order_id} AND email='${res.locals.email}'`
-    connection.query(query, (error,results) =>{
-        if(error) throw error;
+    connection.query(query, (error, results) => {
+        if (error) throw error;
         res.send(results[0])
     })
 })
 
-app.get('/getprofile', verifyUser,(req,res) => {
+app.get('/getprofile', verifyUser, (req, res) => {
     const query = `select email,name,hostel, hostel_room as room, mobile as phone from users where email='${res.locals.email}'`
-    connection.query(query, (error,results) =>{
-        if(error) throw error;
+    connection.query(query, (error, results) => {
+        if (error) throw error;
         res.send(results[0])
     })
 
 })
 
-app.post('/editprofile', verifyUser,(req,res) => {
+app.post('/editprofile', verifyUser, (req, res) => {
     const hostel = req.body.hostel ?? req.query.hostel;
     const room = req.body.room ?? req.query.room;
     const phone = req.body.phone ?? req.query.phone;
     const query = `UPDATE users SET hostel = '${hostel}', hostel_room = '${room}', Mobile='${phone}' WHERE email = '${res.locals.email}'`
-    connection.query(query, (error,results) =>{
-        if(error) throw error;
+    connection.query(query, (error, results) => {
+        if (error) throw error;
         res.send(results)
     })
 

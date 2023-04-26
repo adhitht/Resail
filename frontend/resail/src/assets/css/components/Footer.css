@@ -73,3 +73,7 @@
     font-size: 27px;
     line-height: 40px;
 }
+
+.footer{
+    display: none;
+}
