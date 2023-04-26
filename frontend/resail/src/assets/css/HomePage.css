@@ -117,8 +117,10 @@
 .newest_arrivals_cont {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin: 0 8% 0 8%;
     justify-content: space-evenly;
+    gap: 50px;
 }
 
 
