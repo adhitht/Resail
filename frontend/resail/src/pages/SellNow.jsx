@@ -6,9 +6,12 @@ import NavBar from "../components/NavBar";
 import { backendLinks, backendLink } from '../config';
 import InputBox from "../components/InputBox";
 import Footer from '../components/Footer';
+import ResailLogo from '../img/resailterms.png'
+
 
 // 9e41376b0fcd8ba05c7fb788b50cd939
 function SellNow() {
+    const [popup, setpopup] = useState(false)
     const [item_desc, setitem_desc] = useState();
     const [item_title, setitem_title] = useState();
     const [exp_price, setexp_price] = useState();
@@ -111,7 +114,23 @@ function SellNow() {
     return (
         <>
             <NavBar />
+            <div className='cartpopupwrap' style={{ display: popup ? 'flex' : 'none' }}>
+                <div className='cartpopup'>
+                    <div className='popup_head'>
+                        <img src={ResailLogo} style={{ width: '100px', height: '120px' }} />
 
+                    </div>
+                    <div className='popupcontent'>
+                        <h1>Lets do some terms !</h1>
+                        <p>After when a purchase order is made for your product , you will be notified and have to leave your product at Ramanujan 820.
+                        </p>
+                        <p>After the buyer is satisfied with the purchase , and with the completion of return window ( 48 hr ) , you will be paid the amount.</p>
+                    </div>
+                    <div className='cart_submit_button'>
+                        <button className="profile_submit" onClick={postproduct2}>Post ad</button>
+                    </div>
+                </div>
+            </div>
             <div className='profilemain'>
                 Sell Your Item
                 <div>
@@ -122,7 +141,7 @@ function SellNow() {
                     <input style={{ width: '100%' }} accept="image/png,image/jpg,image/svg,image/jpeg" type='file' placeholder="asd" onChange={(e) => { setdata(e.target.files[0]); }} />
                     <p> </p>
                 </div>
-                <button className="sellnow_submit" onClick={postproduct2}>Post Ad</button>
+                <button className="sellnow_submit" onClick={() => { setpopup(true) }}>Post Ad</button>
             </div>
             <Footer />
         </>
