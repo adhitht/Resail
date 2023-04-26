@@ -104,7 +104,7 @@ function SellNow() {
             })
         if (response2.data.success) {
             alert('Image uploaded successfully')
-            window.location.assign(`/product?product_id=${response.data.product_id}`)
+            window.location.assign(`/product?product_id=${response2.data.product_id}`)
         }
     }
 
