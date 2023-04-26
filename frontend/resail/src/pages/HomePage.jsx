@@ -46,7 +46,7 @@ function HomePage() {
                     {/* <input type='text' className='main_input' placeholder='Search items' /> */}
                     <div className='button_wrap'>
                         <button className='buy_now_button rounded_button'><a href='#mainmain'>Buy Now</a></button>
-                        <button className='sell_now_button rounded_button'>Sell Now</button>
+                        <button className='sell_now_button rounded_button' onClick={()=>{window.location.assign('/sellnow')}}>Sell Now</button>
                     </div>
                 </div>
             </div>

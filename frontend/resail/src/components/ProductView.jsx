@@ -41,7 +41,7 @@ function ProductView({ image, color, posted_on, title, price, on_add, product_id
     }, [changecart[0]])
 
     const month = ['JAN', 'FEB', 'MAR', 'APR', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
-    const posted = `${month[new Date(posted_on).getMonth() - 1]} ${new Date(posted_on).getDate()}`
+    const posted = `${month[new Date(posted_on).getMonth()]} ${new Date(posted_on).getDate()}`
     return (
         <div className="productview" style={{ backgroundColor: color, color: color == 'black' ? 'white' : 'black' }} >
             <div className="productdate" onClick={() => { window.location.assign(`/product/?product_id=${product_id}`, "_self") }}>{posted}</div>

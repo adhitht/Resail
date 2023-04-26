@@ -5,6 +5,7 @@ import Product from './pages/Product';
 import Cart from './pages/Cart';
 import Order from './pages/Order';
 import Profile from './pages/Profile';
+import SellNow from './pages/SellNow';
 
 import { BrowserRouter as Router, Routes, Route, Link, useSearchParams } from "react-router-dom";
 
@@ -31,6 +32,8 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/order' element={<Order />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/sellnow' element={<SellNow />} />
+
       </Routes>
     </Router>
   );

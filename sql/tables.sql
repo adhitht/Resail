@@ -13,7 +13,8 @@ CREATE TABLE products (
 	product_id INT,
 	name VARCHAR(500),
 	description VARCHAR(1000),
-	price int,
+	ask_price int,
+	exp_price int,
 	images VARCHAR(500),
 	posted_on DATETIME,
 	email VARCHAR(500)
