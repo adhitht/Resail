@@ -80,6 +80,34 @@ function SellNow() {
         }
     }
 
+    const postproduct2 = async () => {
+        const formdata = new FormData()
+        formdata.append('image', data)
+        formdata.set('key', '9e41376b0fcd8ba05c7fb788b50cd939')
+        const response = await Axios({
+            method: 'post',
+            url: 'https://api.imgbb.com/1/upload',
+            data: formdata
+        })
+
+        const response2 = await Axios.post(`${backendLink}/postproduct`, {
+            name: item_title,
+            description: item_desc,
+            ask_price: ask_price,
+            exp_price: exp_price,
+            pictures: response.data.data.display_url
+        },
+            {
+                headers: {
+                    "x-access-token": localStorage.getItem("token"),
+                }
+            })
+        if (response2.data.success) {
+            alert('Image uploaded successfully')
+            window.location.assign(`/product?product_id=${response.data.product_id}`)
+        }
+    }
+
     return (
         <>
             <NavBar />
@@ -94,7 +122,7 @@ function SellNow() {
                     <input style={{ width: '100%' }} accept="image/png,image/jpg,image/svg,image/jpeg" type='file' placeholder="asd" onChange={(e) => { setdata(e.target.files[0]); }} />
                     <p> </p>
                 </div>
-                <button className="sellnow_submit" onClick={postproduct}>Post Ad</button>
+                <button className="sellnow_submit" onClick={postproduct2}>Post Ad</button>
             </div>
             <Footer />
         </>
