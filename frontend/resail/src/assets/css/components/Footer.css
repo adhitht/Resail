@@ -1,79 +1,171 @@
-
 .footer {
     display: grid;
-    height: 300px;
+    height: 325px;
     padding-top: 50px;
-    grid-template-columns: 1fr 2fr;
+    padding-bottom: 50px;
+    grid-template-columns: 1fr 15px 2fr;
     margin-top: 200px;
+    margin-bottom: 0;
     background-color: rgba(22, 32, 57, 1);
-}
-
-.group_name_header {
-    color: rgb(255, 210, 99);
-    font-family: 'waranty';
+  }
+  
+  .group_name_header {
+    color: #fdd43e;
+    font-family: "waranty";
     font-size: 80px;
-    margin: 0;
     text-align: center;
-}
-
-.group_name_text {
-    font-family: 'techead';
+  }
+  
+  .group_name_header span {
+    color: white;
+  }
+  .group_name_text {
+    font-family: "techead";
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 28px;
     line-height: 50px;
     text-align: center;
     color: white;
-}
-
-.group_name_company {
-    font-family: 'Montserrat';
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  .group_name_company {
+    font-family: "guesta";
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 65px;
     line-height: 60px;
     color: white;
     text-align: center;
-}
-
-.footer_address {
-    font-family: 'Glorify DEMO';
+  }
+  
+  .footer_address {
+    font-family: "Glorify DEMO";
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 40px;
     color: rgba(255, 255, 255, 0.3);
-    margin-left: 25px;
-}
-
-.footercontactus_text {
-    font-family: 'Montserrat';
+    margin-top: 20px;
+    margin-left: 65px;
+  }
+  
+  .footercontactus_text {
+    font-family: "Glorify DEMO";
     font-style: normal;
     font-weight: 400;
-    font-size: 60px;
+    font-size: 80px;
     line-height: 50px;
     width: 319px;
+    padding-top: 30px;
     margin: auto;
-    color:  rgb(255, 210, 99);
+    color: #fdd43e;
     text-align: center;
-}
-
-.contact_details_container {
+  }
+  
+  .footercontactus_text_text {
+    padding-top: 30px;
+  }
+  
+  .contact_details_container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 200px;
-}
-
-.contact_details_name,.contact_details_action{
+  }
+  
+  .contact_details_name,
+  .contact_details_action {
     color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Glorify DEMO", Georgia, "Times New Roman", Times, serif;
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
     line-height: 40px;
-}
-
-.footer{
-    display: none;
-}
+  }
+  
+  .Contact_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  
+  .linked {
+    margin-right: 10px;
+    margin-bottom: 3px;
+    width: auto;
+    height: 36px;
+  }
+  
+  .Gmail {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: auto;
+    height: 33px;
+  }
+  
+  .Phone {
+    margin-left: 15px;
+    height: 33px;
+    width: auto;
+  }
+  
+  /* Media queries */
+  @media only screen and (max-width: 767px) {
+    .footer {
+      display: block;
+      height: auto;
+      margin-top: 100px;
+      padding: 30px 0;
+    }
+    .group_name_header {
+      font-size: 60px;
+    }
+    .group_name_company {
+      font-size: 40px;
+      line-height: 50px;
+    }
+    .footer_address {
+      margin: 20px auto;
+      text-align: center;
+    }
+    .footercontactus_text {
+      font-size: 50px;
+      padding-top: 10px;
+    }
+    .contact_details_container {
+      flex-direction: column;
+      height: auto;
+      justify-content: center;
+    }
+    .Contact_logo {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    .contact_details_name,
+    .contact_details_action {
+      font-size: 22px;
+      line-height: 30px;
+      text-align: center;
+      margin-top: 15px;
+    }
+    .linked {
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+    }
+    .Gmail {
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+    }
+    .Phone {
+      margin-left: 15px;
+      height: 32px;
+    }
+  }
