@@ -227,7 +227,7 @@ app.get('/searchproducts', (req, res) => {
 
 app.post('/postproduct', verifyUser, (req, res) => {
     const previousquery = 'SELECT MAX(product_id) FROM cart';
-    connection.query(previousquery, [res.locals.email, res.body.product_id], (error, results) => {
+    connection.query(previousquery, [res.locals.email], (error, results) => {
         if (error) throw error;
         const product_id = results[0]['product_id'] + 1;
         const query = 'INSERT INTO products VALUES(?,?,?,?,?,?,0)';
