@@ -10,7 +10,8 @@
     "start": "node index.js",
     "test": "echo \"Test\"",
     "dev": "nodemon app.js",
-    "dev2": "nodemon app2.js"
+    "dev2": "nodemon app2.js",
+    "dev3": "nodemon index.js"
   },
   "author": "Adhith T",
   "license": "ISC",

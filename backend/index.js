@@ -126,7 +126,7 @@ app.use('/test', (req,res) => {
 //     database: 'sql9605257'
 // });
 
-// const localconnection = mysql.createConnection({
+// const connection = mysql.createConnection({
 //     host: 'localhost',
 //     user: 'root',
 //     password: 'root',
@@ -226,12 +226,13 @@ app.get('/searchproducts', (req, res) => {
 })
 
 app.post('/postproduct', verifyUser, (req, res) => {
-    const previousquery = 'SELECT MAX(product_id) FROM cart';
+    const previousquery = 'SELECT MAX(product_id) as product_id FROM cart';
     connection.query(previousquery, [res.locals.email], (error, results) => {
         if (error) throw error;
         const product_id = results[0]['product_id'] + 1;
-        const query = 'INSERT INTO products VALUES(?,?,?,?,?,?,0)';
-        connection.query(query, [product_id, res.body.name, res.body.description, res.body.ask_price, res.body.exp_price, res.body.pictures, res.locals.email], (error, results) => {
+        const query = 'INSERT INTO products VALUES(?,?,?,?,?,?,?,0)';
+        const now = new Date();
+        connection.query(query, [product_id, req.body.name, req.body.description, req.body.ask_price, req.body.exp_price, req.body.pictures,now.toISOString().slice(0, -5), res.locals.email], (error, results) => {
             if (error) throw error;
             res.json({success: true, product_id: product_id});
         });
@@ -242,7 +243,7 @@ app.post('/postproduct', verifyUser, (req, res) => {
 //Cart API Calls
 app.get('/getcart', verifyUser, (req, res) => {
     // const query = 'SELECT * FROM cart WHERE email=?';
-    const query = `select cart.card_id, products.product_id, products.name, products.images, products.price, products.description from cart inner join products on cart.product_id=products.product_id where cart.email=?`
+    const query = `select cart.card_id, products.product_id, products.name, products.images, products.exp_price, products.description from cart inner join products on cart.product_id=products.product_id where cart.email=?`
     connection.query(query, [res.locals.email], (error, results1) => {
         if (error) throw error;
         const query = `select sum(products.price) as total from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
