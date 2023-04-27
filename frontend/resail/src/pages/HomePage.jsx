@@ -5,10 +5,12 @@ import Axios from 'axios';
 import NavBar from '../components/NavBar';
 import { backendLink } from '../config';
 import Footer from '../components/Footer';
+// import countcart from '../components/NavBarCount';
 
 function HomePage() {
     const [newest, setnewest] = useState([]);
     const [cartchanged, setcartchanged] = useState(true)
+    // const [cartcount, setcartcount] = useState('')
 
     const handleCheckCart = async (product_id) => {
         const response = await Axios.post(`${backendLink}/checkcart`, {
@@ -31,14 +33,14 @@ function HomePage() {
     }
 
     useEffect(() => { load_newproducts(); }, [])
-
+    // useEffect(() => { cartcount()), []}
     return (
-        <>
+        <div className='bodybody'>
             <div className='mainview'>
                 <div className='main_header'>
                     <a href='products'>Products</a>
-                    <a>About</a>
-                    <a>Contact</a>
+                    <a >About</a>
+                    <a href='#contact'>Contact</a>
                 </div>
                 <div className='main_details'>
                     <p className='main_title'>ReSa<span>i</span>l</p>
@@ -50,7 +52,7 @@ function HomePage() {
                     </div>
                 </div>
             </div>
-            <NavBar />
+            <NavBar changestate={cartchanged}/>
             <div className='productsview' id='mainmain'>
                 <div className='newest_arrivals'>
                     <p className='newest_arrivals_heading'>Newest Arrivals</p>
@@ -71,7 +73,7 @@ function HomePage() {
                 </div>
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 

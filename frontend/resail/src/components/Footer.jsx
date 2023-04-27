@@ -6,7 +6,7 @@ import Phone from "../img/Vector.svg";
 
 function Footer() {
   return (
-    <div className="footer">
+    <div className="footer" >
       <div className="group_name">
         <div className="group_name_header">
           ReSa<span>i</span>l
@@ -39,7 +39,7 @@ function Footer() {
                 {<img src={Linked} alt="Linked" className="linked" />}
               </a>
               <a
-                href="mailto: Sarthaksaw111@gmail.com?subject=Hello"
+                href="mailto:ms21btech11018@iith.ac.in"
                 className="gmail"
                 target="_blank"
               >
@@ -50,24 +50,24 @@ function Footer() {
               </a>
             </div>
           </div>
-          <div className="contact_details">
+          <div className="contact_details" id='contact'>
             <div className="contact_details_name">Pranadipan Sahoo</div>
             <div className="Contact_logo">
               <a
-                href="https://www.linkedin.com/in/jay-bhanushali-369a03228/"
+                href="https://www.linkedin.com/in/pranadipan-sahoo-361946246/"
                 className="linked"
                 target="_blank"
               >
                 {<img src={Linked} alt="Linked" className="linked" />}
               </a>
               <a
-                href="mailto: Sarthaksaw111@gmail.com?subject=Hello"
+                href="mailto:ms21btech11021@iith.ac.in"
                 className="gmail"
                 target="_blank"
               >
                 {<img src={ContactLogo} alt="Gmail" className="Gmail" />}
               </a>
-              <a href="tel: +917892669254" className="phone" target="_blank">
+              <a href="tel: +918917602924" className="phone" target="_blank">
                 {<img src={Phone} alt="Phone" className="Phone" />}
               </a>
             </div>
@@ -76,20 +76,20 @@ function Footer() {
             <div className="contact_details_name">Rushikesh Dehenkar</div>
             <div className="Contact_logo">
               <a
-                href="https://www.linkedin.com/in/jay-bhanushali-369a03228/"
+                href="https://www.linkedin.com/in/rushikesh-dehankar-33a8a2226/"
                 className="linked"
                 target="_blank"
               >
                 {<img src={Linked} alt="Linked" className="linked" />}
               </a>
               <a
-                href="mailto: Sarthaksaw111@gmail.com?subject=Hello"
+                href="mailto:me21btech11044@iith.ac.in"
                 className="gmail"
                 target="_blank"
               >
                 {<img src={ContactLogo} alt="Gmail" className="Gmail" />}
               </a>
-              <a href="tel: +917892669254" className="phone" target="_blank">
+              <a href="tel: +919518321563" className="phone" target="_blank">
                 {<img src={Phone} alt="Phone" className="Phone" />}
               </a>
             </div>

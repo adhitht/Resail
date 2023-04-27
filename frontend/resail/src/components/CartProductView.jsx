@@ -35,7 +35,7 @@ function CartProductView({product_id,load, image, name, price, description, }) {
                 <hr className="product_cart_hr" />
                 <div className="product_cart_desc_cont">
                     <div className="product_cart_description">{description}</div>
-                    <a onClick={() => {removefromcart(product_id)}}>Remove</a>
+                    <a style={{fontSize: '150%', cursor: 'pointer'}} onClick={() => {removefromcart(product_id)}}>Remove</a>
                 </div>
             </div>
 

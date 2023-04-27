@@ -52,7 +52,8 @@ function Order() {
   return (
     <>
       <NavBar />
-      <div class='ordermain'>
+      
+      <div className='ordermain' kk={amount}>
         <div className="order_page_order_id">Order Id #{order_id}</div>
         <div className="order_total"> Total: {amount}</div>
         <div className="order_page_QR">

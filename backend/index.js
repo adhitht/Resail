@@ -381,7 +381,7 @@ app.post('/checkout', verifyUser, (req, res) => {
         const insertquery = `INSERT INTO orders SELECT ${orderid} as order_id, product_id,email FROM cart WHERE email='${res.locals.email}'`
         connection.query(insertquery)
 
-        const maininsertquery = `INSERT INTO orderlist select ${orderid} as order_id, '${res.locals.email}' as email, NULL as transaction_id, sum(products.exp_price) from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
+        const maininsertquery = `INSERT INTO orderlist select ${orderid} as order_id, '${res.locals.email}' as email, NULL as transaction_id, sum(products.exp_price), 'Processing' as status from cart inner join products on cart.product_id=products.product_id where cart.email='${res.locals.email}'`
         connection.query(maininsertquery)
 
         res.send({ url: `${frontendLink}/order?order_id=${orderid}` })
@@ -390,10 +390,10 @@ app.post('/checkout', verifyUser, (req, res) => {
 
 app.post('/placeorder', verifyUser, (req, res) => {
     const transaction_id = req.body.transaction_id ?? req.query.transaction_id;
-    const query = `UPDATE orderlist SET transaction_id=${transaction_id} WHERE email='${res.locals.email} and order_id='${req.body.order_list}`
+    const query = `UPDATE orderlist SET transaction_id=${transaction_id},status='Processing' WHERE email='${res.locals.email}' and order_id=${req.body.order_id}`
     connection.query(query, (error, results) => {
         if (error) throw error;
-        res.json({ url: `${frontendLink}/orders` })
+        res.json({ url: `${frontendLink}/myorders` })
     })
 })
 

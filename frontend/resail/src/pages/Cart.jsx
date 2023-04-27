@@ -79,7 +79,7 @@ function Cart() {
           <div><p className='product_price'>₹ {totalPayable}</p></div>
         </div>
         <div className='cart_details_actions'>
-          <button className='product_page_cart cart_white'>Pickup</button>
+          <button className='product_page_cart cart_white' onClick={() => {setpopup(true)}}>Pickup</button>
           <span className='vertical_bar'></span>
           <button className='product_page_cart cart_black' onClick={() => {setpopup(true)}}>Check out</button>
         </div>

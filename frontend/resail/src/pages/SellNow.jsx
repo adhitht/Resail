@@ -18,6 +18,7 @@ function SellNow() {
     const [ask_price, setask_price] = useState();
     const [data, setdata] = useState();
     const [imglink, setimglink] = useState();
+    const [disablepostad,setdisablepostad] = useState(false)
 
     const editprofile = async () => {
         console.log('HJello')
@@ -127,7 +128,7 @@ function SellNow() {
                         <p>After the buyer is satisfied with the purchase , and with the completion of return window ( 48 hr ) , you will be paid the amount.</p>
                     </div>
                     <div className='cart_submit_button'>
-                        <button className="profile_submit" onClick={postproduct2}>Post ad</button>
+                        <button className="profile_submit" onClick={() => {setdisablepostad(true);postproduct2()}} disabled={disablepostad}>Post ad</button>
                     </div>
                 </div>
             </div>

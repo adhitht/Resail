@@ -41,7 +41,7 @@ function Profile() {
           }
         });
 
-        // window.location.assign('/')
+        window.location.assign('/')
     }
     
 

@@ -8,7 +8,8 @@ const countcart = async () => {
             "x-access-token": localStorage.getItem("token"),
         }
     });
-    setcartcount(response.data.data.length)
+    // setcartcount(response.data.data.length)
+    return (response.data.data.length)
 }
 
-export default cartcount
+export default countcart

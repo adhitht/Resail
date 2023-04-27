@@ -4,18 +4,40 @@ import Axios from 'axios';
 import { backendLinks, backendLink } from '../config';
 
 
-function ProductView({ image, color, posted_on, title, price, on_add, product_id, changecart}) {
+function ProductView({ image, color, posted_on, title, price, on_add, product_id, changecart }) {
     const [cartpresent, setcartpresent] = useState(false)
     const [cartchanged, setcartchanged] = useState(false)
 
+    const checklogin = () => {
+        const token = localStorage.getItem('token')
+        const picture = localStorage.getItem('picture')
+        if (token && picture) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
     const handleAddtoCart = async () => {
-        await Axios.post(`${backendLink}/postcart`, {
-            product_id: product_id
-        },
-            {
-                headers: { "x-access-token": localStorage.getItem("token") }
-            })
-        changecart[1](!changecart[0])
+        // if(lcal)
+        if(checklogin()){
+            await Axios.post(`${backendLink}/postcart`, {
+                product_id: product_id
+            },
+                {
+                    headers: { "x-access-token": localStorage.getItem("token") }
+                })
+            changecart[1](!changecart[0])
+        }
+        else{
+        const confirmsignin = window.confirm('Should I take you to sign in page?')
+        if(confirmsignin){
+            window.open(`${backendLink}/auth/google`, "_self");
+            // window.location.as
+        }
+        
+        }
     }
 
 
@@ -31,8 +53,9 @@ function ProductView({ image, color, posted_on, title, price, on_add, product_id
         setcartpresent(!response.data.ispresent)
     };
 
-    useEffect(() => { 
-        handleCheckCart() }, [])
+    useEffect(() => {
+        handleCheckCart()
+    }, [])
 
     useEffect(() => {
         handleCheckCart()
@@ -44,10 +67,10 @@ function ProductView({ image, color, posted_on, title, price, on_add, product_id
         <div className="productview" style={{ backgroundColor: color, color: color == 'black' ? 'white' : 'black' }} >
             <div className="productdate" onClick={() => { window.location.assign(`/product/?product_id=${product_id}`, "_self") }}>{posted}</div>
             <div className="productimage" style={{
-                        backgroundImage: `url(${image})`, backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                    }}onClick={() => { window.location.assign(`/product/?product_id=${product_id}`, "_self") }}></div>
+                backgroundImage: `url(${image})`, backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+            }} onClick={() => { window.location.assign(`/product/?product_id=${product_id}`, "_self") }}></div>
             <div className="details" k={cartpresent}>
                 <div className="product_title" onClick={() => { window.location.assign(`/product/?product_id=${product_id}`, "_self") }}>{title}</div>
                 <div className="product_price" onClick={() => { window.location.assign(`/product/?product_id=${product_id}`, "_self") }}>₹ {price}</div>

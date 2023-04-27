@@ -54,7 +54,7 @@ function NavBar(changestate) {
         checklogin(); loginprocedure(); countcart();
     }, [])
 
-    // useEffect(() => { countcart() }, [changestate])
+    useEffect(() => { countcart() }, [changestate])
     useEffect(() => { checklogin() }, [logout])
     
     return (

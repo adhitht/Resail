@@ -42,18 +42,39 @@ function Product() {
         setproduct_image(response.data[0].images)
 
     }
+
+    const checklogin = () => {
+        const token = localStorage.getItem('token')
+        const picture = localStorage.getItem('picture')
+        if (token && picture) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
     const handleAddtoCart = async () => {
-        await Axios.post(`${backendLink}/postcart`, {
-            product_id: product_id
-        },
-            {
-                headers: { "x-access-token": localStorage.getItem("token") }
-            }).then((response) => {
-                if (response.data.added) {
-                    setcartactive(false)
-                }
-            });
-        setchangecart(!changecart)
+        if (checklogin()) {
+            await Axios.post(`${backendLink}/postcart`, {
+                product_id: product_id
+            },
+                {
+                    headers: { "x-access-token": localStorage.getItem("token") }
+                }).then((response) => {
+                    if (response.data.added) {
+                        setcartactive(false)
+                    }
+                });
+            setchangecart(!changecart)
+        }
+        else {
+            const confirmsignin = window.confirm('Should I take you to sign in page?')
+            if (confirmsignin) {
+                window.open(`${backendLink}/auth/google`, "_self");
+            }
+        }
+
     }
 
     useEffect(() => {
