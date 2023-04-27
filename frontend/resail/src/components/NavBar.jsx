@@ -77,7 +77,7 @@ function NavBar(changestate) {
                             <Avatar src={picture} onClick={() => { setavataroptionshow(!avataroptionshow) }} />
                             <div className="avataroptions" style={{ display: avataroptionshow ? 'block' : 'none' }}>
                                 <div className="avataroption" onClick={() => { window.location.assign('/profile') }}><UserAvatar size='1.75rem' style={{ marginRight: '5px' }} />My Profile</div>
-                                <div className="avataroption" onClick={() => { window.location.assign('/orders') }}>
+                                <div className="avataroption" onClick={() => { window.location.assign('/myorders') }}>
                                     <svg width="25" height="17" viewBox="0 0 17 13" fill="none" style={{ marginTop: '2px', marginRight: '5px' }} xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.0356165 0H16.9674C16.9822 0.232923 17.006 0.442553 17.006 0.655095C17.006 4.36827 17.006 8.08145 17.006 11.7946C17.006 12.8515 16.8517 13 15.772 13H7.18742V9.24121H9.16596L5.76359 5.66876L2.58369 9.19462H4.28932V12.9796C3.0761 12.9796 1.83321 13 0.596256 12.9592C0.409378 12.9592 0.183931 12.6681 0.0712109 12.4701C-0.000421326 12.2654 -0.023744 12.0473 0.00299125 11.8325C0.00299125 8.09406 0.00299125 4.35663 0.00299125 0.620158C0.00299125 0.430908 0.0178185 0.244569 0.0356165 0Z" fill="white" />
                                     </svg>
