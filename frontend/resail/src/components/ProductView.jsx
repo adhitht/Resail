@@ -16,8 +16,6 @@ function ProductView({ image, color, posted_on, title, price, on_add, product_id
                 headers: { "x-access-token": localStorage.getItem("token") }
             })
         changecart[1](!changecart[0])
-        // setcartchanged(!cartchanged)
-        // console.log(cartpresent)
     }
 
 

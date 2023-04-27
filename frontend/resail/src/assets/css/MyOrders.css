@@ -1,0 +1,16 @@
+.myorderscont {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+
+}
+
+.myordersheading {
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 45px;
+    line-height: 10px;
+    margin-left: 50px;
+}

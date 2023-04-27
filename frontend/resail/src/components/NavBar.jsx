@@ -38,7 +38,7 @@ function NavBar(changestate) {
             }
         });
         setcartcount(response.data.data.length)
-    }
+    }    
 
     const searchproducts1 = async (search) => {
         if (search != '') {

@@ -1,0 +1,115 @@
+.myorderview {
+    font-family: 'Montserrat';
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin: 10px 50px;
+    box-shadow: 1px 2px 23px rgba(0, 0, 0, 0.1);
+    height: 200px;
+}
+
+.myorder_image {
+    margin: 10%;
+}
+
+.myorderdetailwrap {
+    display: flex;
+    margin-left: 5%;
+    align-items: center;
+    margin-right: 5%;
+    justify-content: space-between;
+
+}
+
+.myorderdetails1 {
+    font-family: 'Montserrat';
+}
+
+.myorderdetails1 p:nth-child(1) {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.myorderdetails1 p:nth-child(2) {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.myorderamount {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.myorderstatus p:nth-child(1) {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.myorderstatus p:nth-child(2) {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+
+    color: rgba(0, 0, 0, 0.4);
+
+}
+
+@media screen and (max-width: 768px) {
+    .myorderview {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .myorder_image {
+        height: 80%;
+        width: 80%;
+    }
+
+    .myorderview {
+        height: 500px;
+    }
+
+    .myorderdetailwrap {
+        flex-direction: column;
+    }
+
+    .myorderdetails1 p:nth-child(1) {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .myorderdetails1 p:nth-child(2) {
+        font-style: italic;
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    .myorderamount {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .myorderstatus p:nth-child(1) {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .myorderstatus p:nth-child(2) {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 30px;
+
+        color: rgba(0, 0, 0, 0.4);
+
+    }
+
+}

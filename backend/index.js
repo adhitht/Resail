@@ -9,8 +9,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('express-session');
 const mysql = require('mysql2');
 const cors = require('cors')
-// const cookieSession = require("cookie-session");
-// const Razorpay = require("razorpay");
+
 
 const app = express();
 const jwt = require('jsonwebtoken');
@@ -139,7 +138,15 @@ app.use('/test', (req, res) => {
 //     host: 'aws.connect.psdb.cloud',
 //     password: 'pscale_pw_bs9vrMOPBRdRpw4y321xqOrwfohZsj1SBZOHhKj5F7A'    
 // });
-const connection = mysql.createConnection(process.env.DATABASE_URL)
+const connection = process.env.DATABASE_URL ? mysql.createConnection(process.env.DATABASE_URL) :
+    mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'resail'
+    });
+
+// const connection = mysql.createConnection(process.env.DATABASE_URL)
 // connection.connect()
 
 
@@ -383,10 +390,10 @@ app.post('/checkout', verifyUser, (req, res) => {
 
 app.post('/placeorder', verifyUser, (req, res) => {
     const transaction_id = req.body.transaction_id ?? req.query.transaction_id;
-    const query = `UPDATE orderlist SET transaction_id=${transaction_id} WHERE email='${res.locals.email}'`
+    const query = `UPDATE orderlist SET transaction_id=${transaction_id} WHERE email='${res.locals.email} and order_id='${req.body.order_list}`
     connection.query(query, (error, results) => {
         if (error) throw error;
-        res.json({ url: `${backendLink}/orders` })
+        res.json({ url: `${frontendLink}/orders` })
     })
 })
 
@@ -397,6 +404,18 @@ app.get('/getorderdetails', verifyUser, (req, res) => {
         if (error) throw error;
         res.send(results[0])
     })
+})
+
+app.get('/getorder', verifyUser, (req, res) => {
+    const query = `SELECT x.order_id, y.name, y.exp_price as amount, y.images, z.status FROM orders x JOIN products y ON x.product_id = y.product_id JOIN orderlist z ON z.order_id=x.order_id WHERE z.transaction_id IS NOT NULL;`
+    connection.query(query, (error, results) => {
+        if (error) throw error;
+        res.send(results)
+        
+    })
+
+
+
 })
 
 app.get('/getprofile', verifyUser, (req, res) => {
