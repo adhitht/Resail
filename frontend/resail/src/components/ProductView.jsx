@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import '../assets/css/components/ProductView.css'
 import Axios from 'axios';
-import { backendLinks, backendLink } from '../config';
+import {  backendLink } from '../config';
 
 
 function ProductView({ image, color, posted_on, title, price, on_add, product_id, changecart }) {
     const [cartpresent, setcartpresent] = useState(false)
-    const [cartchanged, setcartchanged] = useState(false)
 
     const checklogin = () => {
         const token = localStorage.getItem('token')

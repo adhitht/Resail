@@ -1,9 +1,8 @@
 import Axios from "axios";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useSearchParams } from "react-router-dom";
 import '../assets/css/Profile.css'
 import NavBar from "../components/NavBar";
-import { backendLinks, backendLink } from '../config';
+import { backendLink } from '../config';
 import InputBox from "../components/InputBox";
 import Footer from '../components/Footer';
 

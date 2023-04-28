@@ -14,18 +14,6 @@ function HomePage() {
     const [newest, setnewest] = useState([]);
     const [cartchanged, setcartchanged] = useState(true)
     const [main_header_displ,setmain_header_displ] = useState(false)
-    // const [cartcount, setcartcount] = useState('')
-
-    const handleCheckCart = async (product_id) => {
-        const response = await Axios.post(`${backendLink}/checkcart`, {
-            product_id: product_id
-        }, {
-            headers: {
-                "x-access-token": localStorage.getItem("token"),
-            }
-        });
-        return (!response.data.ispresent)
-    };
 
     const load_newproducts = async () => {
         const response = await Axios.get(`${backendLink}/products?order_by=latest&count=3`, {
@@ -37,7 +25,6 @@ function HomePage() {
     }
 
     useEffect(() => { load_newproducts(); }, [])
-    // useEffect(() => { cartcount()), []}
     return (
         <div className='bodybody'>
             <div className='mainview'>

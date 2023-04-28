@@ -1,8 +1,5 @@
 import React from "react";
-import '../assets/css/Product.css'
 import '../assets/css/components/MyOrder.css'
-import Axios from "axios";
-import { backendLinks, backendLink } from '../config';
 
 function MyOrderView({ order_id, image, name, amount, order_status }) {
     return (

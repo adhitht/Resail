@@ -5,6 +5,9 @@ import Linked from "../img/Vectorlinkedin.svg";
 import Phone from "../img/Vector.svg";
 
 function Footer() {
+  const d = new Date();
+  const year = d.getFullYear();
+  console.log(year)
   return (
     <div className="footerwrap">
       <div className="footer" >
@@ -99,7 +102,7 @@ function Footer() {
         </div>
       </div>
       <div className="copyrightandweb">
-        <p>Copyright© 2023 Resail, All Rights Reserved.&nbsp;&nbsp;</p>
+        <p>Copyright© {year} Resail, All Rights Reserved.&nbsp;&nbsp;</p>
         <p style={{ color: '#fdd43e'}}> Website by <a href='mailto:adhith@duck.com' target="_blank">adhitht</a></p>
         </div>
     </div>

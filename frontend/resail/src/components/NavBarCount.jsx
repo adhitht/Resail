@@ -1,6 +1,6 @@
 
 import Axios from "axios";
-import { backendLink,  backendLinks } from "../config";
+import { backendLink } from "../config";
 
 const countcart = async () => {
     const response = await Axios.get(`${backendLink}/getcart`, {

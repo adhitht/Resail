@@ -15,7 +15,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
-
+*/
 .sellnow_submit{
     width: 100px;
     height: 40px;
@@ -29,4 +29,4 @@
 
 .profile_submit:focus{
     outline: 0;
-} */
+} 

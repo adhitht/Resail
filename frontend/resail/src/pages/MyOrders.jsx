@@ -1,10 +1,8 @@
 import Axios from "axios";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useSearchParams } from "react-router-dom";
 import '../assets/css/MyOrders.css'
 import NavBar from "../components/NavBar";
-import { backendLinks, backendLink } from '../config';
-import QRCode from "react-qr-code";
+import { backendLink } from '../config';
 import Footer from '../components/Footer';
 import MyOrderView from "../components/MyOrderView";
 
@@ -36,6 +34,7 @@ function MyOrders() {
             )}
 
         </div>
+        <Footer />
     </>
     )
 }

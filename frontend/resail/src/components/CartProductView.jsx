@@ -2,14 +2,13 @@ import React from "react";
 import '../assets/css/Product.css'
 import '../assets/css/components/CartProduct.css'
 import Axios from "axios";
-import { backendLinks, backendLink } from '../config';
-
+import {  backendLink } from '../config';
 
 function CartProductView({product_id,load, image, name, price, description, }) {
 
     const removefromcart = async (id) => {
 
-        const remove = await Axios.post(`${backendLink}/removecart?product_id=${id}`, {
+        await Axios.post(`${backendLink}/removecart?product_id=${id}`, {
             product_id : id
         },{
             headers: {
