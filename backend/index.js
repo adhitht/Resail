@@ -407,7 +407,7 @@ app.get('/getorderdetails', verifyUser, (req, res) => {
 })
 
 app.get('/getorder', verifyUser, (req, res) => {
-    const query = `SELECT x.order_id, y.name, y.exp_price as amount, y.images, z.status FROM orders x JOIN products y ON x.product_id = y.product_id JOIN orderlist z ON z.order_id=x.order_id WHERE z.transaction_id IS NOT NULL;`
+    const query = `SELECT x.order_id, y.name, y.exp_price as amount, y.images, z.status FROM orders x JOIN products y ON x.product_id = y.product_id JOIN orderlist z ON z.order_id=x.order_id WHERE z.transaction_id IS NOT NULL and x.email='${res.locals.email}';`
     connection.query(query, (error, results) => {
         if (error) throw error;
         res.send(results)
