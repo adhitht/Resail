@@ -307,7 +307,7 @@ app.post('/postproduct', verifyUser, (req, res) => {
     connection.query(previousquery, [res.locals.email], (error, results) => {
         if (error) throw error;
         const product_id = results[0]['product_id'] + 1;
-        const query = 'INSERT INTO products VALUES(?,?,?,?,?,?,?,0)';
+        const query = 'INSERT INTO products VALUES(?,?,?,?,?,?,?,?)';
         const now = new Date();
         connection.query(query, [product_id, req.body.name, req.body.description, req.body.ask_price, req.body.exp_price, req.body.pictures, now.toISOString().slice(0, -5), res.locals.email], (error, results) => {
             if (error) throw error;
