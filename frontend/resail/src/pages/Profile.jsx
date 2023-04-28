@@ -51,7 +51,7 @@ function Profile() {
         <>
             <NavBar />
             <div class='profilemain'>
-                Personal Information
+                <p className="myordersheading">Personal Information</p>
                 <div className="profile_arrange">
                     <InputBox title='Your Name' value={name} disabled />
                     <InputBox title='Your Hostel' value={hostel} setValue={sethostel}/>

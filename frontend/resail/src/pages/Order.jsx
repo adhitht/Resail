@@ -59,7 +59,7 @@ function Order() {
         <div className="order_page_QR">
           {/* <QRCode value='upi://pay?pa=adhith.tharammal@oksbi&pn=Adhith%20T&tn=Hello%20World&am=200&cu=INR' title="H"/> */}
           {/* Even though tn doesn't show while paying it later on shows in history */}
-          <QRCode value={`upi://pay?pa=${upiId}&pn=${company}&tn=${order_id}&am=${amount}&cu=INR&invoiceNo=${order_id}`} />
+          <QRCode size={200} value={`upi://pay?pa=${upiId}&pn=${company}&tn=${order_id}&am=${amount}&cu=INR&invoiceNo=${order_id}`} />
         </div>
         <div className="order_reference_container">
           <input value={referenceId} className='order_reference_id' onChange={(e) => { setreferenceId(e.target.value) }} placeholder="Transaction ID" />

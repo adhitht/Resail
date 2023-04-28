@@ -31,7 +31,13 @@
     padding-top: 50px;
 }
 
+.main_header_ham {
+    display: none;
+}
+
 .main_header {
+    width: 85%;
+    height: 50px;
     display: flex;
     justify-content: flex-end;
     margin-right: 15%;
@@ -42,7 +48,9 @@
     margin-right: 200px;
     font-size: 22px;
     color: #D0BA95;
+    text-decoration: none;
 }
+
 
 .main_details {
     margin: 7% 55% 0 100px;
@@ -94,6 +102,10 @@
     font-size: 22px;
     font-weight: 600;
     font-family: 'PT Sans', sans-serif;
+}
+
+.rounded_button a {
+    text-decoration: none;
 }
 
 .button_wrap {
@@ -174,61 +186,92 @@
 
 
 @media screen and (max-width: 768px) {
+
     /* .mainview {
         width: calc(100vw - 50px);
     } */
+    .mainview {
+        overflow-x: hidden;
+        padding-top: 1px;
+        height: 100svh;
+    }
+
+    .main_header a {
+        text-decoration: none;
+        margin: 15px;
+    }
+
+    .main_header_ham {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: flex-end;
+        padding: 15px;
+        background-color: rgba(105, 105, 105, 0.15);
+        backdrop-filter: blur(5px);
+    }
 
     .main_header {
-        display: none;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        transition: height 500ms;
+        overflow: hidden;
+        margin: 0;
+        width: 100%;
+        background-color: rgba(105, 105, 105, 0.15);
+        backdrop-filter: blur(5px);
     }
 
     .main_details {
-        margin: 50% 15px 0 0;
+        overflow-x: hidden;
+        margin: 50% 0 0 0;
 
     }
 
     .main_title {
-        font-size: 60px;
+        /* font-size: 80px; */
+        font-size: 30vw;
         text-align: center;
     }
 
     .main_subtitle {
         /* display: none; */
         text-align: center;
-        font-size: 16px;
+        font-size: 20px;
     }
 
-    .main_subtitle::after{
+    /* .main_subtitle::after {
         color: red;
         font-size: 12px;
         white-space: pre;
         word-wrap: break-word;
         content: 'For now site is optimized for desktop';
-    }
-
-    .rounded_button {
-        /* padding: 0 50px 0 50px; */
-        /* margin-right: 50px; */
-        width: 200px;
-        height: 36px;
-        font-size: 20px;
-        margin-right: 0;
-    }
-
-    .button_wrap{
+    } */
+    .button_wrap {
         display: flex;
         flex-direction: column;
-        justify-self: center;
+        justify-content: center;
         align-items: center;
         margin-top: 10%;
         gap: 10px;
     }
 
-    .productsnavbar{
+    .rounded_button {
+        /* padding: 0 50px 0 50px; */
+        /* margin-right: 50px; */
+        width: 45%;
+        height: 45px;
+        /* font-size: 20px; */
+        font-size: 0.9rem;
+        margin-right: 0;
+    }
+
+    .productsnavbar {
         display: none;
     }
 
-    .newest_arrivals_cont{
+    .newest_arrivals_cont {
         display: flex;
         flex-wrap: wrap;
     }

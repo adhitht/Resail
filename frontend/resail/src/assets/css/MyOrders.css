@@ -6,11 +6,9 @@
 }
 
 .myordersheading {
-
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 45px;
-    line-height: 10px;
-    margin-left: 50px;
+    margin: 0 50px;
 }

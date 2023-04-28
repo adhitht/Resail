@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Login from './pages/login';
 import HomePage from './pages/HomePage';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
@@ -28,7 +27,6 @@ function App() {
     <Router>
       <Routes>
         <Route exact path='/' element={<HomePage />} />
-        <Route path='/login' element={<Login />} />
         <Route path='/OAuthRedirecting' element={<OAuthRedirecting />} />
         <Route path='/product' element={<Product />} />
         <Route path='/cart' element={<Cart />} />

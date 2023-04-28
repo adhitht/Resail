@@ -1,5 +1,5 @@
 
-// const backend = '172.16.6.74:3000'
+// const backend = '192.168.17.139:3000'
 // const backend = 'localhost:3000'
 const backend = 'resail.vercel.app'
 

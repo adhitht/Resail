@@ -1,7 +1,7 @@
 
 .searchFilter{
-    width: 80%;
-    margin: 50px 100px;
+    width: 90%;
+    margin: 50px 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,4 +66,13 @@
     gap: 150px;
     flex-wrap: wrap;
 
+}
+
+@media screen and (max-width: 768px) {
+    .productspageproductscontainer{
+        margin: 0 10px;
+        gap: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }

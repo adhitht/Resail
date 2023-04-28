@@ -30,3 +30,17 @@
 .profile_submit:focus{
     outline: 0;
 }
+
+@media screen and (max-width: 768px) {
+    .profilemain{
+        overflow-x: hidden;
+        width: calc(100% - 40px);
+        margin: 50px 10px;
+        padding: 10px;
+    }
+
+    .profile_arrange{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

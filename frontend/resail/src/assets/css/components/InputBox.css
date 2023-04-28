@@ -34,3 +34,9 @@
 /* .generic_textarea:focus{ */
     /* outline: ; */
 /* } */
+
+@media screen and (max-width: 768px) {
+    .generic_container{
+        margin: 20px 30px;
+    }
+}

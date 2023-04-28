@@ -74,3 +74,14 @@
     border: 1px solid rgba(242, 173, 1, 0.7);
     background-color: rgba(242, 173, 1, 0.6);
 }
+
+@media screen and (max-width: 768px) {
+    .ordermain{
+        width: calc(100% - 40px);
+        margin: 80px 20px;
+    }
+
+    .order_total{
+        width: auto;
+    }
+}

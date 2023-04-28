@@ -1,4 +1,4 @@
-.profilemain {
+/* .profilemain {
     display: flex;
     align-items: center;
     font-size: 20px;
@@ -9,9 +9,9 @@
     margin-top: 100px;
     border: 1px solid black;
     border-radius: 20px;
-}
+} */
 
-.profile_arrange{
+/* .profile_arrange{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
@@ -29,4 +29,4 @@
 
 .profile_submit:focus{
     outline: 0;
-}
+} */

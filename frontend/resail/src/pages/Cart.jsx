@@ -71,6 +71,7 @@ function Cart() {
 
 
       <div className='cart_page_main'>
+        <p className='mycartheading'>My Cart</p>
         {cartproducts && cartproducts.map(
           cartproduct => <CartProductView key={cartproduct.card_id} load={load} product_id={cartproduct.product_id} image={cartproduct.images} name={cartproduct.name} price={cartproduct.price} description={cartproduct.description} />
         )}

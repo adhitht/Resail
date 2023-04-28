@@ -20,10 +20,6 @@ function SellNow() {
     const [imglink, setimglink] = useState();
     const [disablepostad,setdisablepostad] = useState(false)
 
-    const editprofile = async () => {
-        console.log('HJello')
-    }
-
     const uploadimgur = async () => {
         const formdata = new FormData()
         formdata.append('image', data)
@@ -133,7 +129,7 @@ function SellNow() {
                 </div>
             </div>
             <div className='profilemain'>
-                Sell Your Item
+                <p className="myordersheading">Sell Your Item</p>
                 <div>
                     <InputBox title='Item Title' value={item_title} setValue={setitem_title} />
                     <InputBox title='Item Description' type='textarea' value={item_desc} setValue={setitem_desc} />

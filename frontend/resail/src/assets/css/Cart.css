@@ -1,5 +1,15 @@
 .cart_page_main {
-    margin-top: 200px;
+    margin-top: 50px;
+}
+
+.mycartheading{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 45px;
+    line-height: 10px;
+    margin-left: 50px;
+    margin: 80px 15%;
 }
 
 .cart_details_final {
@@ -71,4 +81,28 @@
     align-items: center;
     margin-bottom: 50px;    
 
+}
+
+@media screen and (max-width: 768px) {
+    .mycartheading{
+        margin: 70px 0 50px 5%;
+    }
+
+    .cart_details_actions{
+        margin: 30px 1%;
+    }
+
+    .cartpopup{
+        height: calc(100vh - 100px);
+        width: 100%;
+        overflow-y: scroll;
+    }
+
+    .cart_details_final p{
+        margin-left: 10px;
+    }
+
+    .product_cart_desc_cont{
+        flex-direction: column;
+    }
 }

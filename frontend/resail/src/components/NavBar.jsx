@@ -3,7 +3,8 @@ import Axios from "axios";
 import { ShoppingCart, UserAvatar, Power } from '@carbon/icons-react'
 import { Avatar } from '@mui/material';
 import '../assets/css/components/NavBar.css'
-import { backendLink,  backendLinks } from "../config";
+import { backendLink, backendLinks } from "../config";
+import resaillogo from '../../src/img/resaillogo.png'
 
 function NavBar(changestate) {
     const [searchResult1, setsearchResult1] = useState([])
@@ -38,7 +39,7 @@ function NavBar(changestate) {
             }
         });
         setcartcount(response.data.data.length)
-    }    
+    }
 
     const searchproducts1 = async (search) => {
         if (search != '') {
@@ -56,10 +57,15 @@ function NavBar(changestate) {
 
     useEffect(() => { countcart() }, [changestate])
     useEffect(() => { checklogin() }, [logout])
-    
+
     return (
         <div className='productsnavbar'>
-            <div className='productsnavbarheader' onClick={() => { window.location.assign('/') }}>Resail<p>BETA</p></div>
+            <div className='productsnavbarheader' onClick={() => { window.location.assign('/') }}>
+                Resail<p>BETA</p>
+            </div>
+            <div className="productsnavbarheadermobile" onClick={() => { window.location.assign('/') }}>
+                <img src={resaillogo} style={{ height: '40px', margin: '0 7px' }} />
+            </div>
             <div className='productsnavbaroptions'>
                 <input type='text' className='productsnavbarinput' placeholder='Search items' onChange={(e) => { searchproducts1(e.target.value) }} />
                 <div className='productsnavbarsearchresult' style={{}}>
@@ -67,10 +73,14 @@ function NavBar(changestate) {
                         <div key={result.product_id} className='searchresult' onClick={() => { window.location.assign(`/product?product=${result.product_id}`) }}>{result.name}</div>
                     )}
                 </div>
-                <div className='productscart' onClick={() => { window.location.replace(`/cart`) }}>
-                    <ShoppingCart size='2rem' color='#868383' />
-                    {cartcount ? (<div className="productcount"><p>{cartcount}</p></div>) : ''}
-                </div>
+                {checklogin() ?
+                    (<div className='productscart' onClick={() => { window.location.replace(`/cart`) }}>
+                        <ShoppingCart size='2rem' color='#868383' />
+                        {cartcount ? (<div className="productcount"><p>{cartcount}</p></div>) : ''}
+                    </div>)
+                    : ''}
+
+
                 <div className='productscart'>
                     {checklogin() ?
                         (<div className="avatar">
