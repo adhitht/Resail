@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../assets/css/components/ProductView.css'
 import Axios from 'axios';
-import {  backendLink } from '../config';
+import { backendLink } from '../config';
 
 
 function ProductView({ image, color, posted_on, title, price, on_add, product_id, changecart }) {
@@ -20,7 +20,7 @@ function ProductView({ image, color, posted_on, title, price, on_add, product_id
 
     const handleAddtoCart = async () => {
         // if(lcal)
-        if(checklogin()){
+        if (checklogin()) {
             await Axios.post(`${backendLink}/postcart`, {
                 product_id: product_id
             },
@@ -29,13 +29,13 @@ function ProductView({ image, color, posted_on, title, price, on_add, product_id
                 })
             changecart[1](!changecart[0])
         }
-        else{
-        const confirmsignin = window.confirm('Should I take you to sign in page?')
-        if(confirmsignin){
-            window.open(`${backendLink}/auth/google`, "_self");
-            // window.location.as
-        }
-        
+        else {
+            const confirmsignin = window.confirm('Should I take you to sign in page?')
+            if (confirmsignin) {
+                window.open(`${backendLink}/auth/google`, "_self");
+                // window.location.as
+            }
+
         }
     }
 

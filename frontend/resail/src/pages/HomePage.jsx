@@ -4,7 +4,6 @@ import ProductView from '../components/ProductView'
 import Axios from 'axios';
 // import { Menu } from '@carbon/icons-react'
 import { Menu } from '@carbon/icons-react'
-
 import NavBar from '../components/NavBar';
 import { backendLink } from '../config';
 import Footer from '../components/Footer';
@@ -13,7 +12,7 @@ import Footer from '../components/Footer';
 function HomePage() {
     const [newest, setnewest] = useState([]);
     const [cartchanged, setcartchanged] = useState(true)
-    const [main_header_displ,setmain_header_displ] = useState(false)
+    const [main_header_displ, setmain_header_displ] = useState(false)
 
     const load_newproducts = async () => {
         const response = await Axios.get(`${backendLink}/products?order_by=latest&count=3`, {
@@ -24,14 +23,26 @@ function HomePage() {
         setnewest(response.data)
     }
 
+    const sellnow = () => {
+        if (checklogin()) {
+            window.location.assign('/sellnow')
+        }
+        else {
+            const confirmsignin = window.confirm('Should I take you to sign in page?')
+            if (confirmsignin) {
+                window.open(`${backendLink}/auth/google`, "_self");
+            }
+        }
+    }
+
     useEffect(() => { load_newproducts(); }, [])
     return (
         <div className='bodybody'>
             <div className='mainview'>
                 <div className='main_header_ham'>
-                    <Menu size={30} color='#D0BA95' onClick={()=>{setmain_header_displ(!main_header_displ)} }/>
+                    <Menu size={30} color='#D0BA95' onClick={() => { setmain_header_displ(!main_header_displ) }} />
                 </div>
-                <div className='main_header' style={{ height: main_header_displ ? '165px' : '0'  }} >
+                <div className='main_header' style={{ height: main_header_displ ? '165px' : '0' }} >
                     <a href='products'>Products</a>
                     <a >About</a>
                     <a href='#contact'>Contact</a>
