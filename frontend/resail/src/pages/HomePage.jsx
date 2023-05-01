@@ -23,6 +23,17 @@ function HomePage() {
         setnewest(response.data)
     }
 
+    const checklogin = () => {
+        const token = localStorage.getItem('token')
+        const picture = localStorage.getItem('picture')
+        if (token && picture) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
     const sellnow = () => {
         if (checklogin()) {
             window.location.assign('/sellnow')
