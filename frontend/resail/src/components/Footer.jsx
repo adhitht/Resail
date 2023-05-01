@@ -43,7 +43,7 @@ function Footer() {
                   {<img src={Linked} alt="Linked" className="linked" />}
                 </a>
                 <a
-                  href="mailto:ms21btech11018@iith.ac.in"
+                  href="mailto:ms21btech11018@iith.ac.in?subject=Can we go on a date"
                   className="gmail"
                   target="_blank"
                 >

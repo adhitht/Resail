@@ -133,7 +133,7 @@ function SellNow() {
                 <div>
                     <InputBox title='Item Title' value={item_title} setValue={setitem_title} />
                     <InputBox title='Item Description' type='textarea' value={item_desc} setValue={setitem_desc} />
-                    <InputBox title='Expected Price(in INR)' value={exp_price} setValue={setexp_price} />
+                    <InputBox title='Minimum Price(in INR)' value={exp_price} setValue={setexp_price} />
                     <InputBox title='Ask Price(in INR)' value={ask_price} setValue={setask_price} />
 
                     <Button
