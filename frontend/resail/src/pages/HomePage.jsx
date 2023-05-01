@@ -22,7 +22,6 @@ function HomePage() {
         });
         setnewest(response.data)
     }
-
     const checklogin = () => {
         const token = localStorage.getItem('token')
         const picture = localStorage.getItem('picture')
@@ -33,7 +32,6 @@ function HomePage() {
             return false
         }
     }
-
     const sellnow = () => {
         if (checklogin()) {
             window.location.assign('/sellnow')
@@ -64,7 +62,7 @@ function HomePage() {
                     {/* <input type='text' className='main_input' placeholder='Search items' /> */}
                     <div className='button_wrap'>
                         <button className='buy_now_button rounded_button'><a href='#mainmain'>Buy Now</a></button>
-                        <button className='sell_now_button rounded_button' onClick={() => { sellnow }}>Sell Now</button>
+                        <button className='sell_now_button rounded_button' onClick={sellnow}>Sell Now</button>
                     </div>
                 </div>
             </div>
