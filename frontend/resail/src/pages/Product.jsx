@@ -94,7 +94,13 @@ function Product() {
                    {cartactive ? <button className="product_page_cart cart_black" onClick={handleAddtoCart}>Add to Bag</button> :
                         <button className="product_page_cart cart_white" onClick={() => { window.location.assign('/cart') }}>View Kart</button>}
 
-                    {cartactive ? <button className="product_page_cart cart_white_negotiate"> onClick={"https://wa.me/917892669254"}>Negotiate</button> 
+                    {cartactive ? <button className=""> onClick={"https://wa.me/917892669254"}>Negotiate</button> 
+                     <div className="product_page_cart cart_white_negotiate">
+                <a
+                  href="https://www.linkedin.com/in/rushikesh-dehankar-33a8a2226/"
+                  className="linked"
+                  target="_blank"
+                >
                          </div>
 
                 </div>
