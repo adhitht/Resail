@@ -94,7 +94,7 @@ function Product() {
                    {cartactive ? <button className="product_page_cart cart_black" onClick={handleAddtoCart}>Add to Bag</button> :
                         <button className="product_page_cart cart_white" onClick={() => { window.location.assign('/cart') }}>View Kart</button>}
 
-                    {cartactive ? <button className="product_page_cart cart_white_negotiate" onClick={() => {window.open('https://wa.me/917892669254','_blank')}}>Negotiate</button> : ''}
+                    <button className="product_page_cart cart_white_negotiate" onClick={() => {window.open('https://wa.me/917892669254','_blank')}}>Negotiate</button>
                          </div>
 
                 </div>
