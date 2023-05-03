@@ -90,8 +90,14 @@ function Product() {
                     <div className="product_page_price">{product_price}</div>
                     <hr className="product_page_hr" />
                     <div className="product_page_description">{product_description}</div>
-                    {cartactive ? <button className="product_page_cart cart_black" onClick={handleAddtoCart}>Add to Bag</button> :
+                    <div className ="product_page_cart the_buttons"> 
+                   {cartactive ? <button className="product_page_cart cart_black" onClick={handleAddtoCart}>Add to Bag</button> :
                         <button className="product_page_cart cart_white" onClick={() => { window.location.assign('/cart') }}>View Kart</button>}
+
+                    {cartactive ? <button className="product_page_cart cart_white_negotiate" onClick={handleAddtoCart}>Negotiate</button> :
+                        <button className="product_page_cart cart_white_negotiate" onClick={() => { <a
+                            href="https://wa.me/917892669254"></a>}}></button>}
+                         </div>
 
                 </div>
                 <div className="product_page_image">
