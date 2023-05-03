@@ -94,8 +94,7 @@ function Product() {
                    {cartactive ? <button className="product_page_cart cart_black" onClick={handleAddtoCart}>Add to Bag</button> :
                         <button className="product_page_cart cart_white" onClick={() => { window.location.assign('/cart') }}>View Kart</button>}
 
-                    {cartactive ? <button className="product_page_cart cart_white_negotiate" onClick={<a
-                            href="https://wa.me/917892669254"></a>}}>Negotiate</button> 
+                    {cartactive ? <button className="product_page_cart cart_white_negotiate" onClick={<a href="https://wa.me/917892669254"></a>}>Negotiate</button>}
                          </div>
 
                 </div>
