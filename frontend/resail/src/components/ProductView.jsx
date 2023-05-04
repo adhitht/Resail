@@ -82,6 +82,8 @@ function ProductView({ image, color, posted_on, title, price, on_add, product_id
                         <span color='white'>Added</span>
                         <span>+</span>
                     </button>)}
+                     <button className="Negotiate" onClick={() =>{window.open('https://wa.me/917892669254','_blank')}} style={{ color: color == 'black' ? 'white' : 'black' }}>
+                        <span color='white'>Negotiate</span></button>
 
             </div>
         </div>
