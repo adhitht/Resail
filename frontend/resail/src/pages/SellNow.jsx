@@ -119,9 +119,9 @@ function SellNow() {
                     </div>
                     <div className='popupcontent'>
                         <h1>Lets do some terms !</h1>
-                        <p>After when a purchase order is made for your product , you will be notified and have to leave your product at Ramanujan 820.
+                       <p>Please provide accurate and detailed descriptions of the products you are selling. This helps ensure that buyers know exactly what they are purchasing.
                         </p>
-                        <p>After the buyer is satisfied with the purchase , and with the completion of return window ( 48 hr ) , you will be paid the amount.</p>
+                        <p>As a seller, you are responsible for ensuring that the products you sell are in good condition and meet any applicable safety standards.</p>
                     </div>
                     <div className='cart_submit_button'>
                         <button className="profile_submit" onClick={() => { setdisablepostad(true); postproduct2() }} disabled={disablepostad}>Post ad</button>
