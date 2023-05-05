@@ -224,13 +224,14 @@
     }
 
     .main_details {
-        overflow-x: hidden;
+        
         margin: 50% 0 0 0;
 
     }
 
     .main_title {
         /* font-size: 80px; */
+        margin-top: -5rem;
         font-size: 30vw;
         text-align: center;
     }
