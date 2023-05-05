@@ -133,4 +133,12 @@
     .product_page_details{
         flex-grow: 1;    
     }
+     .cart_white_negotiate{
+       margin-left: auto;
+      
+    }
+    .cart_black{
+       margin-right:3rem;
+       margin-left: -2rem;
+    }
 }
