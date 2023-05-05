@@ -94,7 +94,68 @@
 
 @media screen and (max-width: 768px) {
     .productview {
-        width: 14rem;
-        height: 25rem;
+        width: 10rem;
+        height: 14rem;
+        margin: 0 2px 0 2px;
+        padding-bottom: 2.6rem;
+    
+
+        /* margin: 0 50px; */
+    }
+
+    .newest_arrivals_cont {
+        margin: 0 7px;
+        gap: 10px;
+        display: flex;
+        
+    }
+
+    .productdate {
+        margin: 15px;
+        text-align: right;
+        font-size: 0.6rem;
+        font-family: 'montserrat';
+    }
+    
+    .productimage {
+        flex-grow: 1;
+        padding-bottom: 7rem;
+    }
+    
+    .details {
+        margin: 25px;
+    }
+    
+    .product_title {
+        height: 0.5rem;
+        margin-top: -1rem;
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+        
+    }
+    
+    .product_price {
+       font-size: 0.6rem;
+    }
+    
+    .add_button {
+        
+        width: 40%;
+        height: 1rem;
+        padding: 0.4rem;
+        display:flex;
+        margin: bottom-left;
+        font-size: 0.7rem;
+    
+    }
+    
+    .Negotiate {
+        width: 68%;
+        height: 1.1rem;
+        font-size: 0.7rem;
+        display:flex;
+        margin:bottom-right;
+        margin-top: 0.4rem;
+        margin-bottom: 5rem;
     }
 }
