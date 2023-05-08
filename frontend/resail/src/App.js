@@ -21,7 +21,7 @@ function OAuthRedirecting(){
 }
 
 function App() {
-
+  console.log(process.env.backend)
 
   return (
     <Router>
