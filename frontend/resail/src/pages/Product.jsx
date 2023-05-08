@@ -14,6 +14,7 @@ function Product() {
     const [product_price, setproduct_price] = useState()
     const [product_description, setproduct_description] = useState()
     const [product_image, setproduct_image] = useState()
+    const [wanumber, setwanumber] = useState('918374602924')
     const [cartactive, setcartactive] = useState(true)
     const [changecart, setchangecart] = useState(true)
 
@@ -40,6 +41,12 @@ function Product() {
         setproduct_price(response.data[0].price)
         setproduct_description(response.data[0].description)
         setproduct_image(response.data[0].images)
+        if (response.data[0].phonenumber.length == 12){
+            setwanumber(response.data[0].phonenumber)
+        }
+        else if(response.data[0].phonenumber.length == 10){
+            setwanumber(`91${response.data[0].phonenumber}`)
+        }
 
     }
 
@@ -94,7 +101,7 @@ function Product() {
                    {cartactive ? <button className="product_page_cart cart_black" onClick={handleAddtoCart}>Add to Bag</button> :
                         <button className="product_page_cart cart_white" onClick={() => { window.location.assign('/cart') }}>View Kart</button>}
 
-                    <button className="product_page_cart cart_white_negotiate" onClick={() => {window.open('https://wa.me/917892669254','_blank')}}>Negotiate</button>
+                    <button className="product_page_cart cart_white_negotiate" onClick={() => {window.open(`https://wa.me/${wanumber}`,'_blank')}}>Negotiate</button>
                          </div>
 
                 </div>

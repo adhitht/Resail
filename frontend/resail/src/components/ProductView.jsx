@@ -4,8 +4,19 @@ import Axios from 'axios';
 import { backendLink } from '../config';
 
 
-function ProductView({ image, color, posted_on, title, price, on_add, product_id, changecart }) {
+function ProductView({ image, color, posted_on, title, price, on_add, product_id, changecart, phonenumber }) {
     const [cartpresent, setcartpresent] = useState(false)
+    let wanumber = '918374602924'
+
+    if (phonenumber) {
+        if (phonenumber.length == 12) {
+            wanumber = phonenumber.toString()
+        }
+        else if (phonenumber.length == 10) {
+            wanumber = `91${phonenumber.toString()}`
+        }
+    }
+
 
     const checklogin = () => {
         const token = localStorage.getItem('token')
@@ -82,8 +93,8 @@ function ProductView({ image, color, posted_on, title, price, on_add, product_id
                         <span color='white'>Added</span>
                         <span>+</span>
                     </button>)}
-                     <button className="Negotiate" onClick={() =>{window.open('https://wa.me/917892669254','_blank')}} style={{ color: color == 'black' ? 'white' : 'black' }}>
-                        <span color='white'>Negotiate</span></button>
+                <button className="Negotiate" onClick={() => { window.open(`https://wa.me/${wanumber}`, '_blank') }} style={{ color: color == 'black' ? 'white' : 'black' }}>
+                    <span color='white'>Negotiate</span></button>
 
             </div>
         </div>

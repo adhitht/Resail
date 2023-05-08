@@ -80,7 +80,8 @@ function HomePage() {
                                     posted_on={product.posted_on}
                                     price={product.price}
                                     product_id={(product.product_id)}
-                                    changecart={[cartchanged, setcartchanged]} />
+                                    changecart={[cartchanged, setcartchanged]}
+                                    phonenumber={product.phonenumber} />
                             )
                         }
                     </div>

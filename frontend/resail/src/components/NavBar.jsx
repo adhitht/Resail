@@ -3,7 +3,7 @@ import Axios from "axios";
 import { ShoppingCart, UserAvatar, Power } from '@carbon/icons-react'
 import { Avatar } from '@mui/material';
 import '../assets/css/components/NavBar.css'
-import { backendLink, backendLinks } from "../config";
+import { backendLink } from "../config";
 import resaillogo from '../../src/img/resaillogo.png'
 
 function NavBar(changestate) {

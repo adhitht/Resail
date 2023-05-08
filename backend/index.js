@@ -191,16 +191,18 @@ app.get('/users', (req, res) => {
 
 //Product API Calls
 app.get('/products', (req, res) => {
+    // let countquery = ''
+    // try {
+    //     const count = req.body.count ?? req.query.count;
+    //     countquery = `limit ${count}` ?? ''
+    // }
+    // catch (error) {
+    //     console.log(error)
+    // }
     const countquery = ''
-    try {
-        const count = req.body.count ?? req.query.count;
-        const countquery = `limit ${count}` ?? ''
-    }
-    catch (error) {
-        console.log(error)
-    }
+
     if (req.body.order_by == 'latest' || req.query.order_by == 'latest') {
-        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ORDER BY posted_on desc ${countquery} `;
+        const query = `SELECT x.product_id,x.name,x.description,x.exp_price as price,x.images,x.posted_on,y.mobile as phonenumber FROM products x LEFT JOIN users y ON x.email=y.email ORDER BY posted_on desc ${countquery} `;
 
         connection.query(query, (error, results) => {
             if (error) throw error;
@@ -209,7 +211,7 @@ app.get('/products', (req, res) => {
         })
     }
     else if (req.body.order_by == 'price_asc' || req.query.order_by == 'price_asc') {
-        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ORDER BY price ${countquery} `;
+        const query = `SELECT x.product_id,x.name,x.description,x.exp_price as price,x.images,x.posted_on,y.mobile as phonenumber FROM products x LEFT JOIN users y ON x.email=y.email ORDER BY price ${countquery} `;
 
         connection.query(query, (error, results) => {
             if (error) throw error;
@@ -218,7 +220,7 @@ app.get('/products', (req, res) => {
         })
     }
     else if (req.body.order_by == 'price_desc' || req.query.order_by == 'price_desc') {
-        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ORDER BY price desc ${countquery} `;
+        const query = `SELECT x.product_id,x.name,x.description,x.exp_price as price,x.images,x.posted_on,y.mobile as phonenumber FROM products x LEFT JOIN users y ON x.email=y.email ORDER BY price desc ${countquery} `;
 
         connection.query(query, (error, results) => {
             if (error) throw error;
@@ -227,7 +229,7 @@ app.get('/products', (req, res) => {
         })
     }
     else {
-        const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products ${countquery}`;
+        const query = `SELECT x.product_id,x.name,x.description,x.exp_price as price,x.images,x.posted_on,y.mobile as phonenumber FROM products x LEFT JOIN users y ON x.email=y.email  ${countquery}`;
 
         connection.query(query, (error, results) => {
             if (error) throw error;
@@ -238,8 +240,8 @@ app.get('/products', (req, res) => {
 
 app.get('/getproduct', (req, res) => {
     const product_id = req.body.product_id ?? req.query.product_id;
-    // const product_id = req.query.product_id
-    const query = `SELECT product_id,name,description,exp_price as price,images,posted_on FROM products WHERE product_id=${product_id}`;
+    const query = `SELECT x.product_id,x.name,x.description,x.exp_price as price,x.images,x.posted_on,y.mobile as phonenumber FROM products x LEFT JOIN users y ON x.email=y.email HAVING x.product_id=${product_id}`;
+
     connection.query(query, (error, results) => {
         if (error) throw error;
         res.send(results);

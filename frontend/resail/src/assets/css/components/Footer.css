@@ -1,7 +1,7 @@
 .footer {
   overflow-x: hidden;
   display: grid;
-  height: 325px;
+  height: 360px;
   padding-top: 50px;
   padding-bottom: 50px;
   grid-template-columns: 1fr 15px 2fr;

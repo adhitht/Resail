@@ -7,7 +7,6 @@ import Phone from "../img/Vector.svg";
 function Footer() {
   const d = new Date();
   const year = d.getFullYear();
-  console.log(year)
   return (
     <div className="footerwrap">
       <div className="footer" >
