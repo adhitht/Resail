@@ -17,7 +17,7 @@ function Product() {
     const [wanumber, setwanumber] = useState('918374602924')
     const [cartactive, setcartactive] = useState(true)
     const [changecart, setchangecart] = useState(true)
-
+    const[selected,setSelected]=useState(null)
     const handleCheckCart = async () => {
         const response = await Axios.post(`${backendLink}/checkcart`, {
             product_id: product_id
@@ -83,6 +83,14 @@ function Product() {
         }
 
     }
+    const toggle = (i) =>{
+        if(selected == i){
+            return setSelected(null)
+        }
+        
+        setSelected(i)
+
+    }
 
     useEffect(() => {
         load()
@@ -115,9 +123,44 @@ function Product() {
                 </div>
 
             </div>
+            <div className="Headings">
+            <h1>FAQs</h1>
+            <p>Have a question?</p>
+            </div>
+            <div className="wrapper">
+           
+                <div className="accordian">
+           {data.map((item, i) => (
+        <div className="item" key={i}>
+            <div className="title" onClick={()=>toggle(i)}><h2>{item.question}</h2>
+            <span>{selected === i ? '-' :'+'}</span>
+            </div>
+             <div className={selected === i ? 'content_show' :'content'}>{item.answer}</div>
+            </div>
+              ))}
+              </div>
+            </div>
             <Footer />
+           
         </>
     )
 }
-
+const data=[
+    {
+        question:'Question 1',
+        answer:'efhiuahfiuawfihifh'
+    },
+    {
+    question:'Question 2',
+    answer:'fauifhaeiwilruf'
+    },
+    {
+        question:'Question 3',
+        answer:'fauifhaeiwilasfasruf'
+    },
+    {
+        question:'Question 4',
+        answer:'fauifhaeafswefaruf'
+    }
+]
 export default Product;
