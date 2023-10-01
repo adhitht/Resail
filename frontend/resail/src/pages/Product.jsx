@@ -5,7 +5,7 @@ import '../assets/css/Product.css'
 import NavBar from "../components/NavBar";
 import {  backendLink } from '../config';
 import Footer from '../components/Footer';
-
+import logo from "../img/LOGO.png"
 
 function Product() {
     const [queryparams] = useSearchParams()
@@ -127,6 +127,15 @@ function Product() {
             <h1>FAQs</h1>
             <p>Have a question?</p>
             </div>
+           
+            <div className="inputContainer">
+            <span className="Logo_input"><img src={logo}></img></span>
+    <input
+        type="text"
+        className="longInput"
+        placeholder="Type your question"
+    />
+</div>
             <div className="wrapper">
            
                 <div className="accordian">
@@ -135,7 +144,10 @@ function Product() {
             <div className="title" onClick={()=>toggle(i)}><h2>{item.question}</h2>
             <span>{selected === i ? '-' :'+'}</span>
             </div>
-             <div className={selected === i ? 'content_show' :'content'}>{item.answer}</div>
+           
+             <div className={selected === i ? 'content_show' :'content'}>{item.answer}
+             <hr></hr> </div>
+             {/* {i === 3 && <hr className="question-divider" />} */}
             </div>
               ))}
               </div>

@@ -2,7 +2,7 @@
 const backend = process.env.backend || 'localhost'
 const backendLink = process.env.backendlink || `http://${backend}:3000`
 const frontendLink = process.env.frontendlink || `http://${backend}:3001`
-// require('dotenv').config()
+require('dotenv').config()
 
 const express = require('express');
 const passport = require('passport');

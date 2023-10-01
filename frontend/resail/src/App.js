@@ -7,7 +7,7 @@ import Profile from './pages/Profile';
 import SellNow from './pages/SellNow';
 import Products from './pages/Products';
 import MyOrders from './pages/MyOrders';
-
+import Sellers from './pages/Sellers';
 import { BrowserRouter as Router, Routes, Route, Link, useSearchParams } from "react-router-dom";
 
 function OAuthRedirecting(){
@@ -35,6 +35,7 @@ function App() {
         <Route path='/sellnow' element={<SellNow />} />
         <Route path='/products' element={<Products />} />
         <Route path='myorders' element={<MyOrders />} />
+        <Route path='/Sellers_page' element={<Sellers/>}/>
       </Routes>
     </Router>
   );

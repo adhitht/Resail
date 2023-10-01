@@ -1,0 +1,140 @@
+body{
+    background: #D9D9D9;
+    
+}
+nav{
+    height:100px;
+    background-color: white;
+}
+.main_div{
+    background: linear-gradient(180deg, #F2F2F5 0%, #E4F7FF 100%);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top:50px;
+   
+}
+.main_div_1{
+    display: flex;
+}
+.inbox_div{
+    width:30vw;
+    border-radius: 10px;
+    padding:30px;
+}
+.inbox{
+    background-color: white;
+    height:399px;
+    border-radius: 10px;
+    width:289px;
+}
+.welcome_div{
+    display: flex;
+    flex-direction:column;
+    gap:2%
+}
+.welcome_div > p {
+    font-family: Montserrat;
+font-size: 40px;
+font-weight: 500;
+line-height: 80px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+.impression_div{
+    background: linear-gradient(109.07deg, #35E399 26.48%, rgba(99, 223, 170, 0.710886) 160.84%);
+    width: 898px;
+    height:244px;
+    border-radius:15px;
+}
+.nego_div{
+    background: #D9D9D9;
+    width: 898px;
+    height: 118px;
+    border-radius: 15px;
+font-size: 36px;
+font-weight: 500;
+line-height: 80px;
+letter-spacing: 0em;
+text-align: center;
+
+}
+.main_div_2{
+ margin-top: 50px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.main_div_2 > p{
+   
+font-size: 48px;
+font-weight: 500;
+line-height: 29px;
+
+
+}
+.active_div{
+    display: flex;
+    border-color: #34E098;
+    border-style: solid;
+    border-width: 2px;
+   width:90vw;
+   height:20vh;
+   margin-top: 3%;
+   border-radius: 8px;
+   gap:10%;
+   background-color: #F4F7FA;
+   align-items: center;
+   justify-content: space-around;
+}
+.para_active_div{
+    display: flex;
+    flex-direction: column;
+    
+}
+.sold_button{
+    background: #F2AD01;
+    border-radius:8px;
+}
+.sold_button{
+    width:163px;
+    height:44px;
+}
+.button_div{
+    display: flex;
+    flex-direction: column;
+}
+.list_1{
+    list-style: none;
+}
+.list_1 > li{
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 32px;
+}
+
+.navbar_div{
+    display: flex;
+    justify-content:space-between ;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.list_2{
+    display: flex;
+}
+.list_2 > img{
+    object-fit:contain;
+}
+.prod_flex{
+    display: flex;
+    justify-content: space-between;
+width:80vw}
+.products_lisgts{
+    width:250px;
+    background-color: #D9D9D9B2;
+    height:300px;
+    border-radius: 20px;
+    margin-top: 20px;
+}

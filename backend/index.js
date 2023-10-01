@@ -9,7 +9,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('express-session');
 const mysql = require('mysql2');
 const cors = require('cors')
-
+require('dotenv').config()
 
 const app = express();
 const jwt = require('jsonwebtoken');
