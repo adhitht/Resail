@@ -53,28 +53,6 @@ function Footer() {
                 </a>
               </div>
             </div>
-            <div className="contact_details" id='contact'>
-              <div className="contact_details_name">Pranadipan Sahoo</div>
-              <div className="Contact_logo">
-                <a
-                  href="https://www.linkedin.com/in/pranadipan-sahoo-361946246/"
-                  className="linked"
-                  target="_blank"
-                >
-                  {<img src={Linked} alt="Linked" className="linked" />}
-                </a>
-                <a
-                  href="mailto:ms21btech11021@iith.ac.in"
-                  className="gmail"
-                  target="_blank"
-                >
-                  {<img src={ContactLogo} alt="Gmail" className="Gmail" />}
-                </a>
-                <a href="tel: +918917602924" className="phone" target="_blank">
-                  {<img src={Phone} alt="Phone" className="Phone" />}
-                </a>
-              </div>
-            </div>
             <div className="contact_details">
               <div className="contact_details_name">Rushikesh Dehenkar</div>
               <div className="Contact_logo">
