@@ -32,7 +32,7 @@ function Footer() {
 
           <div className="contact_details_container">
             <div className="contact_details">
-              <div className="contact_details_name">meow Bhanushali </div>
+              <div className="contact_details_name">Jay Bhanushali </div>
               <div className="Contact_logo">
                 <a
                   href="https://www.linkedin.com/in/jay-bhanushali-369a03228/"
