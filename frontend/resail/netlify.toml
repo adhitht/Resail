@@ -2,8 +2,11 @@
   command = "CI='' npm run build"
   publish  = "/build"
   base = "frontend/resail"
+  commandOrigin: ui
+  environment:- backend
+  publish: /opt/build/repo/build
+  publishOrigin: ui
 
-[[redirects]]
   from = "/*"
   to = "./index.html"
   status = 200
